@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #404040;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+  padding: 20px;
+}
+
+img {
+  max-width: 250px;
+}
+button {
+  color: black;
+}
+
+/* !_-------__---- */
+
+header {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 30px;
+}
+
+header > button.choosen {
+  background-color: orange;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.products {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cart-container {
+  width: 30%;
+}
+
+.products-container {
+  width: 65%;
+}
+
+.cart {
+  background-color: #606060;
+}
+
+.cart-items {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  color: black;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cart-item > img {
+  width: 70px;
+}
+
+.modal-container {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 50%;
+  background-color: #fff;
+  height: 300px;
+}
+
+.modal h1,
+.modal p {
+  color: black;
+}
