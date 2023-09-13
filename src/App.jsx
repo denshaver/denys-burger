@@ -6,6 +6,7 @@ import { ModalWindow } from "./components/ModalWindow";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal, openModal } from "./features/modal/modalSlice";
 import { Head } from "./components/Head";
+import { Footers } from "./components/Footers";
 import Logo from "./components/Logos";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             </div>
           </section>
         </main>
+        <Footers />
       </div>
     </>
   );
