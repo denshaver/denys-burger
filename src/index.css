@@ -25,7 +25,7 @@ button {
 /* !_-------__---- */
 
 header {
-  margin: 50px 0;
+  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,15 +97,16 @@ main {
   height: 70vh;
 }
 .cart {
-  height: fit-content;
-  width: 19rem;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-items: space-around;
-  gap: 30px;
-  align-items: flex-start;
-  z-index: 0;
+  /* background-color: #606060; */
+   height: fit-content;
+   width: 19rem;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-items: space-around;
+   gap: 30px;
+   align-items: flex-start;
+   z-index: 0;
 }
 .cart-title {
   width: 100%;
@@ -132,7 +133,8 @@ main {
   gap: 40px;
   align-items: center;
 }
-.cart-item {
+
+.cart-item{
   display: flex;
   gap: 10px;
   align-items: center;
@@ -428,7 +430,8 @@ main {
   font-weight: 400;
   line-height: normal;
 }
-.contact {
+
+.contact{
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -458,14 +461,17 @@ main {
   top: 0;
   left: -25px;
 }
-.social {
+
+.social{
   display: flex;
   flex-direction: column;
+ 
   width: 25%;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.social > h2 {
+
+.social>h2{
   color: #000;
   font-family: Nunito;
   font-size: 24px;
