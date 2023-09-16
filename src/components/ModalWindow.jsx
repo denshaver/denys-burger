@@ -2,19 +2,21 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../data/products";
 import { closeModal } from "../features/modal/modalSlice";
-import { addItem } from "../features/cart/cartSlice";
+import { addQuantity, increaseQuantity,addItem } from "../features/cart/cartSlice";
+
 
 export const ModalWindow = () => {
   const dispatch = useDispatch();
-  const [modalCount, setModalCount] = React.useState(1);
+  
   const productId = useSelector((state) => state.modal.productId);
+  const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
-  if (modalCount < 1) {
+  
+  console.log(cart.quantity);
+  
+  if (cart.quantity < 1) {
     dispatch(closeModal());
   }
-
-  console.log(neededProduct);
-  console.log(products);
 
   if (!neededProduct) {
     return (
@@ -60,7 +62,7 @@ export const ModalWindow = () => {
           <div className="modal-button">
             <button
               onClick={() => {
-                dispatch(addItem({ productId, amount: 1 }));
+                dispatch(addItem({ productId, amount: cart.quantity}));
                 dispatch(closeModal());
               }}
             >
@@ -68,12 +70,14 @@ export const ModalWindow = () => {
             </button>
 
             <div className="modal-count">
-              <button onClick={() => setModalCount(modalCount - 1)}>-</button>
-              <span>{modalCount}</span>
-              <button onClick={() => setModalCount(modalCount + 1)}>+</button>
+              <button onClick={() => dispatch(increaseQuantity(cart.quantity - 1))}>-</button>
+
+              <span>{cart.quantity}</span>
+
+              <button onClick={() => dispatch(addQuantity(cart.quantity + 1))}>+</button>
             </div>
           </div>
-          <p>{neededProduct.price * modalCount}$</p>
+          <p>{neededProduct.price * cart.quantity}$</p>
         </div>
       </div>
     </div>
