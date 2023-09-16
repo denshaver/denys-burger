@@ -21,10 +21,8 @@ const cartSlice = createSlice({
     increaseQuantity: (state, action) => {
       state.quantity = action.payload;
     },
-    deletCartItem: (state, action) => {
-      return state.cartItems.filter(
-        (item) => item.productId === action.payload
-      );
+    deletCartItem: (state) => {
+      cartItems : [];
     }
   },
 });
