@@ -4,25 +4,37 @@ import { products } from "../data/products";
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart);
+
+  const offseting = () => {
+    cart.cartItems.pop();
+  }
+  console.log(cart.cartItems.length);
+  console.log(cart);
+
   return (
     <section className="cart-container">
       <div className="cart">
         <div className="cart-title">
-          <h1>Your order:</h1>
-          <span className="cart-count">{cart.amount}</span>
+          <h1>Your order:<span>{cart.cartItems.length}</span></h1>
+          {/* <span className="cart-count">{cart.amount}</span> */}
         </div>
+
         <div className="cart-items">
+          
           {cart.cartItems.map((cartItem) => {
+            
             const neededItem = products.find(
               (product) => product.id === cartItem.productId
             );
+            
             return (
+
               <div className="cart-item" key={neededItem.productId}>
                 <img src={neededItem.img} alt="" />
                 <h3>{neededItem.title}</h3>
                 <h4>{neededItem.price}$</h4>
                 <div className="cart-item-count">
-                  <button>-</button>
+                  <button onClick={()=> offseting()}>-</button>
                   <span>{cartItem.amount}</span>
                   <button>+</button>
                 </div>

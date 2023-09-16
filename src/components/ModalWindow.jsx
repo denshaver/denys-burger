@@ -6,8 +6,15 @@ import { addItem } from "../features/cart/cartSlice";
 
 export const ModalWindow = () => {
   const dispatch = useDispatch();
+  const [modalCount, setModalCount] = React.useState(1);
   const productId = useSelector((state) => state.modal.productId);
   const neededProduct = products.find((product) => product.id === productId);
+  if (modalCount < 1) {
+    dispatch(closeModal());
+  }
+
+  console.log(neededProduct);
+  console.log(products);
 
   if (!neededProduct) {
     return (
@@ -23,24 +30,50 @@ export const ModalWindow = () => {
   return (
     <div className="modal-container">
       <div className="modal">
-        <img src={neededProduct.img} alt="" />
+        <h1>{neededProduct.title}</h1>
+
         <div className="modal-info">
-          <h1>{neededProduct.title}</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-            enim aspernatur fugiat distinctio nihil esse totam optio
-            repudiandae, maiores dolorum omnis dolore ipsa odit et sapiente rem
-            architecto accusantium temporibus?
-          </p>
-          <button
-            onClick={() => {
-              dispatch(addItem({ productId, amount: 1 }));
-              dispatch(closeModal());
-            }}
-          >
-            Add to cart
-          </button>
-          <button onClick={() => dispatch(closeModal())}>Close</button>
+          <img src={neededProduct.img} alt="" />
+
+          <div className="modal-subinfo">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repellendus enim aspernatur fugiat distinctio nihil esse totam
+              optio repudiandae, maiores dolorum omnis dolore ipsa odit et
+              sapiente rem architecto accusantium temporibus?
+            </p>
+            <div className="modal-ingredients">
+              <h3>Ingredients:</h3>
+              <ul>
+                <li>Wheat bun</li>
+                <li>Beef cutlet</li>
+                <li>Red onion</li>
+                <li>Lettuce leaves</li>
+                <li>Mustard sauce</li>
+              </ul>
+              <span>{neededProduct.weight}g</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="modal-button">
+          <div className="modal-button">
+            <button
+              onClick={() => {
+                dispatch(addItem({ productId, amount: 1 }));
+                dispatch(closeModal());
+              }}
+            >
+              Add to cart
+            </button>
+
+            <div className="modal-count">
+              <button onClick={() => setModalCount(modalCount - 1)}>-</button>
+              <span>{modalCount}</span>
+              <button onClick={() => setModalCount(modalCount + 1)}>+</button>
+            </div>
+          </div>
+          <p>{neededProduct.price * modalCount}$</p>
         </div>
       </div>
     </div>
