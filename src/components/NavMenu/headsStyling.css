@@ -24,6 +24,7 @@ header > button {
   cursor: pointer;
   display: flex;
   align-items: center;
+  background-color: #e9e6e6;
 }
 header > button.choosen {
   background-color: orange;
