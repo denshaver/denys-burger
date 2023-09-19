@@ -3,10 +3,10 @@ import { Cart } from "./components/Cart/Cart";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Head } from "./components/NavMenu/Head";
-import { Footers } from "./components/Footers/Footers";
-import { Products } from "./components/Products/Products";
-import Logo from "./components/Header/Logos";
+import { openModal } from "./features/modal/modalSlice";
+import { Head } from "./components/Head";
+import { Footers } from "./components/Footers";
+import Logo from "./components/Logos";
 
 function App() {
   const [category, setCategory] = useState("sku_id_1");
@@ -22,7 +22,9 @@ function App() {
         </header>
         <main>
           <Cart />
+
           <Products category={category} />
+
         </main>
         <Footers />
       </div>
