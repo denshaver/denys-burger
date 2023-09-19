@@ -1,19 +1,20 @@
 import React from "react";
+import "./footersStyling.css";
 
 export const Footers = () => {
   return (
     <div className="footers">
       <div className="logo">
         <div className="logo-img">
-          <img src="img/footer-logo-text.png" alt="" />
-          <img src="img/footer-logo.png" alt="" />
+          <img src="img/logo/f1-text.svg" alt="" />
+          <img src="img/logo/f1.svg" alt="" />
         </div>
 
         <div className="design">
           <h3>
-            @YouMeal,2023 <br />
+            @Skadi ev,2023 <br />
             <span>
-              Design: <b>DenysVysotskyi</b>
+              Design: <b>DenysVysotskyi & co.</b>
             </span>
           </h3>
         </div>
@@ -33,10 +34,10 @@ export const Footers = () => {
         <br />
      <div className="social-img">
      <a href="#">
-          <img src="img/tel.png" alt="" />
+          <img src="img/logo/t.svg" alt="" />
         </a>
         <a href="#">
-          <img src="img/tel.png" alt="" />
+          <img src="img/logo/t.svg" alt="" />
         </a>
      </div>
       </div>
