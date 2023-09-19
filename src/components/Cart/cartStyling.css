@@ -1,0 +1,120 @@
+/* cart */
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  width: 30%;
+  height: 70vh;
+}
+.cart {
+  /* background-color: #606060; */
+   height: fit-content;
+   width: 19rem;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-items: space-around;
+   gap: 30px;
+   align-items: flex-start;
+   z-index: 0;
+}
+.cart-empty {
+  margin: 0 auto;
+  color: #FF7020;
+  font-family: Nunito;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 800;
+  /* line-height: 100%; */
+  z-index: -1;
+}
+.cart-empty>span {
+  margin: 0 auto;
+  color: #FF7020;
+  font-family: Nunito;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  padding-left: 10px;
+  z-index: -1;
+}
+.cart-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-title > h1,
+.cart-title > span {
+  color: #000;
+  font-family: Nunito;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+.cart-items {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: black;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.cart-item{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.total-conteiner {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+}
+.cart-item > img {
+  width: 90px;
+  height: 70px;
+}
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cart-item-info-title > h3 {
+  color: #000;
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.cart-item-info-title > span {
+  color: #b1b1b1;
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.cart-item-count {
+  display: flex;
+  gap: 10px;
+}
+.cart-item-count > span,
+.cart-item-count > button {
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

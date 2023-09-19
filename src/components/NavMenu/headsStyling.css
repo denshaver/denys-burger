@@ -1,0 +1,35 @@
+/* header */
+header {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+
+header > button {
+  padding: 3px 7px;
+  background: inherit;
+  border-radius: 10px;
+  border: none;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #4e4e4e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+header > button.choosen {
+  background-color: orange;
+  padding: 5px 10px;
+  color: #e9e6e6;
+  place-self: center;
+  cursor: pointer;
+  border: none;
+}

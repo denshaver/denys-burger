@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { products } from "../data/products";
-import { closeModal } from "../features/modal/modalSlice";
-import { addQuantity, increaseQuantity,addItem } from "../features/cart/cartSlice";
-
+import { products } from "../../data/products";
+import { closeModal } from "../../features/modal/modalSlice";
+import { addQuantity, increaseQuantity,addItem } from "../../features/cart/cartSlice";
+import "./ModalWindowStyling.css";
 
 export const ModalWindow = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ export const ModalWindow = () => {
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
   
-  console.log(cart.quantity);
+
   
-  if (cart.quantity < 1) {
+  if (cart.quantity < 0) {
     dispatch(closeModal());
   }
 

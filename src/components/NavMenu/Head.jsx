@@ -1,7 +1,8 @@
 import React from 'react'
-import { categories } from "../data/categories";
-import Logo from "./Logos"
+import { categories } from "../../data/categories";
+import Logo from "../Header/Logos"
 import { useDispatch, useSelector } from "react-redux";
+import "./headsStyling.css";
 
 export const Head = ({category, setCategory}) => {
  
