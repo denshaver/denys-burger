@@ -7,7 +7,7 @@ import { Head } from "./components/NavMenu/Head";
 import { Footers } from "./components/Footers/Footers";
 import { Products } from "./components/Products/Products";
 import Logo from "./components/Header/Logos";
-
+import { openModal } from "./features/modal/modalSlice";
 
 function App() {
   const [category, setCategory] = useState("sku_id_1");
