@@ -16,8 +16,8 @@
   font-style: normal;
   font-weight: 800;
   letter-spacing: 5px;
-  border-bottom: #FFAB08 solid 5px;
-  border-radius: 50%;
+  /* border-bottom: #FFAB08 solid 5px;
+  border-radius: 50%; */
 }
 .products {
   display: flex;
