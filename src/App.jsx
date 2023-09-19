@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Cart } from "./components/Cart/Cart";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { useDispatch, useSelector } from "react-redux";
-
 import { Head } from "./components/NavMenu/Head";
 import { Footers } from "./components/Footers/Footers";
 import { Products } from "./components/Products/Products";
