@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Cart } from "./components/Cart";
 import { ModalWindow } from "./components/ModalWindow";
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal, openModal } from "./features/modal/modalSlice";
+import { openModal } from "./features/modal/modalSlice";
 import { Head } from "./components/Head";
 import { Footers } from "./components/Footers";
 import Logo from "./components/Logos";
@@ -33,7 +33,9 @@ function App() {
                 .map((product) => {
                   return (
                     <div className="product-item" key={product.id}>
-                      <img src={product.img} alt="" style={{with:"200px",height:"200px", borderRadius:"10px"}} />
+                     <picture>
+                     <img src={product.img} loading="lazy" alt="" style={{with:"200px",height:"200px", borderRadius:"10px"}} />
+                     </picture>
                       <h2>{product.price}$</h2>
                       <h3>{product.title}</h3>
                       <span>{product.weight}g</span>

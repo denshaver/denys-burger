@@ -7,18 +7,14 @@
   color: rgb(8, 8, 8);
   font-family: Nunito;
 }
-
 body {
   background-color: #eeeded;
 }
-
 .container {
   margin: 0 auto;
   max-width: 1280px;
   width: 100%;
-  /* padding: 20px; */
 }
-
 img {
   max-width: 250px;
 }
@@ -80,12 +76,10 @@ header > button.choosen {
   cursor: pointer;
   border: none;
 }
-
 main {
   display: flex;
   justify-content: space-between;
 }
-
 .products {
   display: flex;
   gap: 40px;
@@ -93,6 +87,7 @@ main {
 }
 
 /* cart */
+
 .cart-container {
   display: flex;
   flex-direction: column;
@@ -103,17 +98,16 @@ main {
 }
 .cart {
   /* background-color: #606060; */
-  height: fit-content;
-  width: 19rem;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-items: space-around;
-  gap: 30px;
-  align-items: flex-start;
-  z-index: 0;
+   height: fit-content;
+   width: 19rem;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-items: space-around;
+   gap: 30px;
+   align-items: flex-start;
+   z-index: 0;
 }
-
 .cart-title {
   width: 100%;
   display: flex;
@@ -129,7 +123,6 @@ main {
   font-weight: 600;
   line-height: 100%;
 }
-
 .cart-items {
   margin: 20px 0;
   display: flex;
@@ -141,7 +134,7 @@ main {
   align-items: center;
 }
 
-.cart-item {
+.cart-item{
   display: flex;
   gap: 10px;
   align-items: center;
@@ -193,10 +186,9 @@ main {
   font-weight: 400;
   line-height: normal;
 }
-/* .cart-item > img {
-  width: 70px;
-} */
+
 /* modal */
+
 .modal-container {
   height: 100lvw;
   width: 98.7vw;
@@ -204,17 +196,14 @@ main {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.75);
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .modal {
   width: fit-content;
   height: fit-content;
   background-color: #fff;
-
   border-radius: 10px;
   position: fixed;
   top: 20%;
@@ -335,6 +324,7 @@ main {
 }
 
 /* products */
+
 .products-container {
   display: flex;
   flex-direction: column;
@@ -410,6 +400,7 @@ main {
   cursor: pointer;
   background: #aeaeb1da;
 }
+
 /* footer */
 
 .footers {
@@ -440,7 +431,7 @@ main {
   line-height: normal;
 }
 
-.contact {
+.contact{
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -471,16 +462,16 @@ main {
   left: -25px;
 }
 
-.social {
+.social{
   display: flex;
   flex-direction: column;
-
+ 
   width: 25%;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-.social > h2 {
+.social>h2{
   color: #000;
   font-family: Nunito;
   font-size: 24px;

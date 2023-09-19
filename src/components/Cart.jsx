@@ -14,7 +14,7 @@ export const Cart = () => {
   // const neededProduct = products.find((product) => product.id === productId);
   const cart = useSelector((state) => state.cart);
   if (cart.quantity < 1) {
-    dispatch(deletCartItem(cart.cartItems));
+    dispatch(deletCartItem());
   }
   console.log(cart.quantity);
 
