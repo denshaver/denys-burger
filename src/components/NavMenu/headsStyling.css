@@ -6,12 +6,13 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  /* background-color: #e9e6e6; */
 }
 
 
 
 header > button {
-  padding: 3px 7px;
+  padding: 5px 10px;
   background: inherit;
   border-radius: 10px;
   border: none;
@@ -20,16 +21,17 @@ header > button {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: #4e4e4e;
+  color: #000;
   cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: #e9e6e6;
+  background-color: #fff;
+  
 }
 header > button.choosen {
   background-color: orange;
   padding: 5px 10px;
-  color: #e9e6e6;
+  color: #000;
   place-self: center;
   cursor: pointer;
   border: none;
