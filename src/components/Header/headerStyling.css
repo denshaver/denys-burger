@@ -28,6 +28,12 @@ width: fit-content;
   align-items: flex-start;
   gap: 30px;
 }
+.burger-logo>img {
+ width: 300px;
+ position : relative;
+ top: -55px;
+ left: 0px;
+}
 
 .burger-logo-info{
   display: flex;

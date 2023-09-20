@@ -15,9 +15,9 @@ body {
   max-width: 1280px;
   width: 100%;
 }
-img {
+/* img {
   max-width: 250px;
-}
+} */
 button {
   color: black;
 }
@@ -26,7 +26,11 @@ button {
 
 main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
 }
 .products {
   display: flex;
