@@ -1,18 +1,26 @@
 import React from "react";
+import i18next from "i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../data/products";
 import { closeModal } from "../../features/modal/modalSlice";
 import { addQuantity, increaseQuantity,addItem } from "../../features/cart/cartSlice";
 import "./ModalWindowStyling.css";
+import { useTranslation } from "react-i18next";
 
 export const ModalWindow = () => {
   const dispatch = useDispatch();
-  
+  const {t, i18n} = useTranslation();
   const productId = useSelector((state) => state.modal.productId);
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
   
-
+const changeLanguage = () => {
+  if (i18n.language === "en") {
+    i18next.changeLanguage("ua");
+  } else {
+    i18next.changeLanguage("en");
+  }
+}
   
   if (cart.quantity < 0) {
     dispatch(closeModal());
