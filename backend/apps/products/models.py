@@ -1,9 +1,15 @@
 from django.db import models
 
+from apps.categories.models import Category
+
 
 class Product(models.Model):
     name = models.CharField(max_length=150,
                             verbose_name='Product name')
+    category = models.ForeignKey(Category,
+                                 on_delete=models.CASCADE,
+                                 verbose_name='Category',
+                                 related_name='products')
     description = models.TextField(max_length=10000,
                                    verbose_name='Description',
                                    blank=True,

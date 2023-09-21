@@ -9,7 +9,9 @@ class Category(models.Model):
                              verbose_name='Category icon',
                              null=True,
                              blank=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True,
+                            blank=True,
+                            null=True)
 
     class Meta:
         db_table = 'categories'
