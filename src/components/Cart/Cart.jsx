@@ -23,10 +23,14 @@ export const Cart = () => {
   return (
     <section className="cart-container">
       <div className="cart">
+
         {!hasItemsInCart || cart.quantity < 1 ? (
+          <div className="cart-title">
           <p className="cart-empty">
+
             Your cart is empty. <br /> <span>place your order...</span>
           </p>
+          </div>
         ) : (
           <div className="cart-title">
             <h1>Your order:</h1>

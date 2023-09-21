@@ -11,6 +11,8 @@ export const Products = ({category}) => {
   console.log(category);
 
   return (
+    <>
+    
     <section className="products-container">
       <h1>{categories.find((cat) => cat.id === category).title}</h1>
       <div className="products">
@@ -22,11 +24,7 @@ export const Products = ({category}) => {
                 <img
                   src={product.img}
                   alt=""
-                  style={{
-                    with: "200px",
-                    height: "200px",
-                    borderRadius: "10px",
-                  }}
+                  
                 />
                 <h2>{product.price}$</h2>
                 <h3>{product.title}</h3>
@@ -39,5 +37,6 @@ export const Products = ({category}) => {
           })}
       </div>
     </section>
+    </>
   );
 };
