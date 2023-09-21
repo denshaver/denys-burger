@@ -4,7 +4,7 @@ import "./headerStyling.css"
  const Logos = () => {
   return (
     <div className='burger-logo-header'>
-     <div className="burger-img">
+     <div className="logo-burger-img">
      <img src="./img/logo/h1-text.svg" alt="" />
       <img src="./img/logo/h1.svg" alt="" />
      </div>

@@ -8,24 +8,27 @@
   background-position: bottom;
   /* background-size: cover; */
   background-image: url("./img/bg-logo.png");
-  height: 335px;
+  height: 355px;
   margin-bottom: 50px;
 }
-.burger-logo-header>img{
- display: flex;
- align-items: center;
- width: 150px;
- margin-top: 20px;
-}
 
+.logo-burger-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0;
+width: fit-content;
+}
 .burger-logo {
-  width: 50%;
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   gap: 30px;
 }
+
 .burger-logo-info{
   display: flex;
   flex-direction: column;
