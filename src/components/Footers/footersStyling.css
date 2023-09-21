@@ -6,6 +6,7 @@
   align-items: flex-start;
   padding: 30px;
   width: 100%;
+  background-color: #fff;
 }
 .logo {
   display: flex;
