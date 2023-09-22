@@ -1,7 +1,5 @@
 from core.manager import BaseManager
 
-from django.db.models import Prefetch
-
 
 class ProductManager(BaseManager):
 
