@@ -9,3 +9,8 @@ class ProductManager(BaseManager):
         ).prefetch_related(
             'ingredients'
         )
+
+    def get_by_category(self, category_id):
+        return self.filter_by_data({
+            'category_id': category_id
+        })
