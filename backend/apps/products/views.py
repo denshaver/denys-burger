@@ -15,9 +15,8 @@ class ProductsViewSet(mixins.ListModelMixin,
     @action(
         methods=['get'],
         detail=False,
-        url_path='filter_by_category/(?P<category_id>[0-9ф]+)'
     )
-    def get_by_category(self, request, category_id=None):
+    def filter_by_category(self, request, category_id):
         products = Product.objects.get_by_category(category_id)
         if products is None:
             return Response({

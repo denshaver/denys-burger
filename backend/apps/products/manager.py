@@ -1,14 +1,22 @@
 from core.manager import BaseManager
 
+from django.db.models import Prefetch
+
 
 class ProductManager(BaseManager):
 
     def get_all(self):
         return super().get_all().select_related(
             'category'
-        ).prefetch_related(
-            'ingredients'
         )
+
+    def filter_by_data(self, data):
+        queryset = super().filter_by_data(data)
+        if queryset is not None:
+            queryset = queryset.select_related(
+                'category'
+            )
+        return queryset
 
     def get_by_category(self, category_id):
         return self.filter_by_data({
