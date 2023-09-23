@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: bottom;
   align-items: center;
-  width: 1280px;
+  width: 100vw;
   background-position: bottom;
   /* background-size: cover; */
   background-image: url("./img/bg-logo.png");
@@ -20,7 +20,7 @@
 width: fit-content;
 }
 .burger-logo {
-  width: 100%;
+  width: 50%;
   height: auto;
   display: flex;
   flex-direction: row;
