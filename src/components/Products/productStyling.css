@@ -7,12 +7,16 @@
   justify-content: center; */
   gap: 20px;
   padding: 15px;
+  /* margin-top :65px ; */
   width: 65%;
+  position: relative;
  
 }
 .products-container>h1 {
   width: fit-content;
-  
+  position: absolute;
+  top: -50px;
+  left: 20px;
   color:#FF7020;
   font-family: Nunito;
   font-size: 28px;
@@ -93,4 +97,5 @@
 .product-item > button:hover {
   cursor: pointer;
   background: #F86310;
+  color: #fff;
 }

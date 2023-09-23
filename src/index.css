@@ -31,6 +31,7 @@ main {
   flex-wrap: nowrap;
   align-content: center;
   align-items: center;
+  margin-top: 85px;
 }
 .products {
   display: flex;
