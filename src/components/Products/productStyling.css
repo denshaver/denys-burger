@@ -45,7 +45,9 @@
   border-radius: 10px;
 }
 .product-item > img {
-  width: 100%;
+  width:276px ;
+  height: 220px;
+  border-radius: 12px;
 }
 .product-item > h2 {
   color: #000;
