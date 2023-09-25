@@ -4,7 +4,7 @@
   justify-content: bottom;
   align-items: center;
   width: 100%;
-
+  overflow: hidden;
   height: 355px;
   margin-bottom: 50px;
 }
@@ -15,6 +15,7 @@
   height: 2880px;
   background-color: #ffab08;
   position: absolute;
+ 
   border-radius: 2880px;
   top: -2490px;
   z-index: -2;

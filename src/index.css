@@ -9,6 +9,7 @@
 }
 body {
   background-color: #eeeded;
+  overflow: hidden;
 }
 .container {
   margin: 0 auto;
