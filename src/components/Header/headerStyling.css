@@ -22,11 +22,15 @@
 
 
 .logo-burger-img {
+ width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 25px 0;
-  width: fit-content;
+  
+}
+.logo-burger-img>img {
+  width:inherit;
 }
 .burger-logo {
   width: 70%;
@@ -38,17 +42,17 @@
   gap: 30px;
 }
 .burger-logo > img {
-  width: 300px;
+  width: 280px;
   position: relative;
-  top: -55px;
-  left: 0px;
+  top: -25px;
+
 }
 
 .burger-logo-info {
   display: flex;
   flex-direction: column;
   gap: 45px;
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 .burger-logo-info > h1 {
