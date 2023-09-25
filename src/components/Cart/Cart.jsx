@@ -5,7 +5,7 @@ import {
   deletCartItem,
   increaseQuantity,
 } from "../../features/cart/cartSlice";
-import "./cartStyling.css"
+import "./cartStyling.css";
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -13,23 +13,14 @@ export const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
-  if (cart.quantity < 1) {
-    dispatch(deletCartItem());
-  }
-
-  console.log(cart.quantity);
-  console.log(cart.cartItems.length);
-
   return (
     <section className="cart-container">
       <div className="cart">
-
         {!hasItemsInCart || cart.quantity < 1 ? (
           <div className="cart-title">
-          <p className="cart-empty">
-
-            Your cart is empty. <br /> <span>place your order...</span>
-          </p>
+            <p className="cart-empty">
+              Your cart is empty. <br /> <span>place your order...</span>
+            </p>
           </div>
         ) : (
           <div className="cart-title">
@@ -76,15 +67,15 @@ export const Cart = () => {
                   </button>
                 </div>
                 <br />
-                {/* total */}
-                <div className="total-conteiner">
-                  <h2 className="cart-total">
-                    Total: <b>{neededItem.price * cart.quantity}$</b>
-                  </h2>
-                </div>
               </div>
             ) : null;
           })}
+        </div>
+        {/* total */}
+        <div className="total-conteiner">
+          <h2 className="cart-total">
+            Total: <b>{cart.total}$</b>
+          </h2>
         </div>
       </div>
     </section>

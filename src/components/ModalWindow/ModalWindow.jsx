@@ -13,6 +13,7 @@ export const ModalWindow = () => {
   const productId = useSelector((state) => state.modal.productId);
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
+const [quantity, setQuantity] = useState(0); 
   
 const changeLanguage = () => {
   if (i18n.language === "en") {
@@ -21,8 +22,10 @@ const changeLanguage = () => {
     i18next.changeLanguage("en");
   }
 }
-  
-  if (cart.quantity < 0) {
+  if (quantity < 1) {
+    setQuantity(0);
+    return}
+  if (cart.quantity < 1) {
     dispatch(closeModal());
   }
 
@@ -78,11 +81,11 @@ const changeLanguage = () => {
             </button>
 
             <div className="modal-count">
-              <button onClick={() => dispatch(increaseQuantity(cart.quantity - 1))}>-</button>
+              <button onClick={() => setQuantity(prev =>prev-1)}>-</button>
 
               <span>{cart.quantity}</span>
 
-              <button onClick={() => dispatch(addQuantity(cart.quantity + 1))}>+</button>
+              <button onClick={() => setQuantity(prev =>prev+1)}>+</button>
             </div>
           </div>
           <p>{neededProduct.price * cart.quantity}$</p>
