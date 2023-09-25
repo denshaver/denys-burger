@@ -1,26 +1,25 @@
 .burger-logo-header {
   display: flex;
-
   flex-direction: column;
   justify-content: bottom;
   align-items: center;
   width: 100%;
   background-position: bottom;
-  /* background-size: cover; */
+  background-size: cover;
   background-image: url("./img/bg-logo.png");
   height: 355px;
   margin-bottom: 50px;
 }
 
-.logo-burger-img{
+.logo-burger-img {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 25px 0;
-width: fit-content;
+  width: fit-content;
 }
 .burger-logo {
-  width: 50%;
+  width: 70%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -28,14 +27,14 @@ width: fit-content;
   align-items: flex-start;
   gap: 30px;
 }
-.burger-logo>img {
- width: 300px;
- position : relative;
- top: -55px;
- left: 0px;
+.burger-logo > img {
+  width: 300px;
+  position: relative;
+  top: -55px;
+  left: 0px;
 }
 
-.burger-logo-info{
+.burger-logo-info {
   display: flex;
   flex-direction: column;
   gap: 45px;
@@ -60,19 +59,18 @@ width: fit-content;
   line-height: 120%;
 }
 .burger-logo-info > p {
-  color: #FFF;
+  color: #fff;
   font-family: Nunito;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-.burger-logo-info > p> b {
-  color: #FFF;
+.burger-logo-info > p > b {
+  color: #fff;
   font-family: Nunito;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
-
