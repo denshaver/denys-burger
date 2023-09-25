@@ -4,6 +4,7 @@ export const categories = [
     id: "sku_id_1",
     img:"./img/pic/1.svg"
   },
+ 
   {
     title: "Snacks",
     id: "sku_id_2",
