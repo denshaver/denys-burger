@@ -4,12 +4,22 @@
   justify-content: bottom;
   align-items: center;
   width: 100%;
-  background-position: bottom;
-  background-size: cover;
-  background-image: url("./img/bg-logo.png");
+
   height: 355px;
   margin-bottom: 50px;
 }
+
+
+.burger-circle {
+  width: 2880px;
+  height: 2880px;
+  background-color: #ffab08;
+  position: absolute;
+  border-radius: 2880px;
+  top: -2490px;
+  z-index: -2;
+}
+
 
 .logo-burger-img {
   display: flex;

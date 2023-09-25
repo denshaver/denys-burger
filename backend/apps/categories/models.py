@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 
+from core.manager import BaseManager
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100,
@@ -12,6 +14,8 @@ class Category(models.Model):
     slug = models.SlugField(unique=True,
                             blank=True,
                             null=True)
+
+    objects = BaseManager()
 
     class Meta:
         db_table = 'categories'
