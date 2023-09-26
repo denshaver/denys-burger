@@ -15,8 +15,7 @@ export const products = [
     categoryId: "sku_id_1",
     weight: 500,
   },
- 
-// ========
+// =======
   {
     id: "tr_id_3",
     title: "Snacks ",

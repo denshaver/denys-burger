@@ -14,7 +14,7 @@ export const ModalWindow = () => {
   const productId = useSelector((state) => state.modal.productId);
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   // const changeLanguage = () => {
   //   if (i18n.language === "en") {
@@ -24,7 +24,7 @@ export const ModalWindow = () => {
   //   }
   // }
 
-  if (quantity < 0) {
+  if (quantity < 1) {
     dispatch(closeModal());
     setQuantity(0);
   }
