@@ -8,6 +8,7 @@
   font-family: Nunito;
 }
 body {
+
   background-color: #eeeded;
   overflow-x: hidden;
 }
@@ -29,8 +30,7 @@ main {
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: center;
- 
   margin-top: 85px;
- 
+
 }
 

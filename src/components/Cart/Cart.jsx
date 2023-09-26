@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import { products } from "../../data/products";
-import {
-  addQuantity,
-  deletCartItem,
-  increaseQuantity,
-} from "../../features/cart/cartSlice";
+import { calcCartInfo,increaseProduct,decreaseProduct } from "../../features/cart/cartSlice";
 import "./cartStyling.css";
+import { useEffect } from "react";
 
 export const Cart = () => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
-
+  
+  useEffect (()=> {
+    dispatch(calcCartInfo());
+  }, [cart]);
+console.log(cart);
   return (
     <section className="cart-container">
       <div className="cart">
@@ -26,7 +27,7 @@ export const Cart = () => {
           <div className="cart-title">
             <h1>Your order:</h1>
             {/* <span>{cart.cartItems.length}</span> */}
-            <span className="cart-count">{cart.quantity}</span>
+            <span className="cart-count">{}</span>
           </div>
         )}
 
@@ -50,21 +51,9 @@ export const Cart = () => {
                 </div>
                 {/* button,count */}
                 <div className="cart-item-count">
-                  <button
-                    onClick={() =>
-                      dispatch(increaseQuantity(cart.quantity - 1))
-                    }
-                  >
-                    -
-                  </button>
-
-                  <span>{cart.quantity}</span>
-
-                  <button
-                    onClick={() => dispatch(addQuantity(cart.quantity + 1))}
-                  >
-                    +
-                  </button>
+                  <button onClick={() => dispatch(decreaseProduct(neededItem.productId))}>-</button>
+                  <span>{}</span>
+                  <button onClick={() => dispatch(increaseProduct(neededItem.productId))}>+</button>
                 </div>
                 <br />
               </div>
@@ -74,7 +63,7 @@ export const Cart = () => {
         {/* total */}
         <div className="total-conteiner">
           <h2 className="cart-total">
-            Total: <b>{cart.total}$</b>
+            Total: <b>{}$</b>
           </h2>
         </div>
       </div>

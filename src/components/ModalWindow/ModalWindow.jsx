@@ -1,32 +1,32 @@
 import React from "react";
-import i18next from "i18next";
+// import i18next from "i18next";
+// import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../data/products";
 import { closeModal } from "../../features/modal/modalSlice";
-import { addQuantity, increaseQuantity,addItem } from "../../features/cart/cartSlice";
+import { addItem } from "../../features/cart/cartSlice";
+import { useState } from "react";
 import "./ModalWindowStyling.css";
-import { useTranslation } from "react-i18next";
 
 export const ModalWindow = () => {
   const dispatch = useDispatch();
-  const {t, i18n} = useTranslation();
+  // const {t, i18n} = useTranslation();
   const productId = useSelector((state) => state.modal.productId);
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
-const [quantity, setQuantity] = useState(0); 
-  
-const changeLanguage = () => {
-  if (i18n.language === "en") {
-    i18next.changeLanguage("ua");
-  } else {
-    i18next.changeLanguage("en");
-  }
-}
-  if (quantity < 1) {
-    setQuantity(0);
-    return}
-  if (cart.quantity < 1) {
+  const [quantity, setQuantity] = useState(0);
+
+  // const changeLanguage = () => {
+  //   if (i18n.language === "en") {
+  //     i18next.changeLanguage("ua");
+  //   } else {
+  //     i18next.changeLanguage("en");
+  //   }
+  // }
+
+  if (quantity < 0) {
     dispatch(closeModal());
+    setQuantity(0);
   }
 
   if (!neededProduct) {
@@ -73,7 +73,13 @@ const changeLanguage = () => {
           <div className="modal-button">
             <button
               onClick={() => {
-                dispatch(addItem({ productId, amount: cart.quantity}));
+                dispatch(
+                  addItem({
+                    productId,
+                    amount: quantity,
+                    price: neededProduct.price,
+                  })
+                );
                 dispatch(closeModal());
               }}
             >
@@ -81,14 +87,14 @@ const changeLanguage = () => {
             </button>
 
             <div className="modal-count">
-              <button onClick={() => setQuantity(prev =>prev-1)}>-</button>
+              <button onClick={() => setQuantity((prev) => prev - 1)}>-</button>
 
-              <span>{cart.quantity}</span>
+              <span>{quantity}</span>
 
-              <button onClick={() => setQuantity(prev =>prev+1)}>+</button>
+              <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
           </div>
-          <p>{neededProduct.price * cart.quantity}$</p>
+          <p>{neededProduct.price * quantity}$</p>
         </div>
       </div>
     </div>
