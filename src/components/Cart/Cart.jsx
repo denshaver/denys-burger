@@ -1,41 +1,33 @@
 import { useSelector, useDispatch } from "react-redux";
 import { products } from "../../data/products";
-import {
-  addQuantity,
-  deletCartItem,
-  increaseQuantity,
-} from "../../features/cart/cartSlice";
-import "./cartStyling.css"
+import { calcCartInfo,increaseProduct,decreaseProduct } from "../../features/cart/cartSlice";
+import "./cartStyling.css";
+import { useEffect } from "react";
 
 export const Cart = () => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
-
-  if (cart.quantity < 1) {
-    dispatch(deletCartItem());
-  }
-
-  console.log(cart.quantity);
-  console.log(cart.cartItems.length);
-
+  
+  useEffect (()=> {
+    dispatch(calcCartInfo());
+  }, [cart]);
+console.log(cart);
   return (
     <section className="cart-container">
       <div className="cart">
-
         {!hasItemsInCart || cart.quantity < 1 ? (
           <div className="cart-title">
-          <p className="cart-empty">
-
-            Your cart is empty. <br /> <span>place your order...</span>
-          </p>
+            <p className="cart-empty">
+              Your cart is empty. <br /> <span>place your order...</span>
+            </p>
           </div>
         ) : (
           <div className="cart-title">
             <h1>Your order:</h1>
             {/* <span>{cart.cartItems.length}</span> */}
-            <span className="cart-count">{cart.quantity}</span>
+            <span className="cart-count">{}</span>
           </div>
         )}
 
@@ -59,32 +51,20 @@ export const Cart = () => {
                 </div>
                 {/* button,count */}
                 <div className="cart-item-count">
-                  <button
-                    onClick={() =>
-                      dispatch(increaseQuantity(cart.quantity - 1))
-                    }
-                  >
-                    -
-                  </button>
-
-                  <span>{cart.quantity}</span>
-
-                  <button
-                    onClick={() => dispatch(addQuantity(cart.quantity + 1))}
-                  >
-                    +
-                  </button>
+                  <button onClick={() => dispatch(decreaseProduct(neededItem.productId))}>-</button>
+                  <span>{}</span>
+                  <button onClick={() => dispatch(increaseProduct(neededItem.productId))}>+</button>
                 </div>
                 <br />
-                {/* total */}
-                <div className="total-conteiner">
-                  <h2 className="cart-total">
-                    Total: <b>{neededItem.price * cart.quantity}$</b>
-                  </h2>
-                </div>
               </div>
             ) : null;
           })}
+        </div>
+        {/* total */}
+        <div className="total-conteiner">
+          <h2 className="cart-total">
+            Total: <b>{}$</b>
+          </h2>
         </div>
       </div>
     </section>

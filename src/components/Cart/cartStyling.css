@@ -5,14 +5,15 @@
   flex-direction: column;
   gap: 20px;
   position: relative;
-  width: 25%;
+  width: 300px;
   height: 70vh;
-  /* padding-top: 60px; */
+ 
   background-color: #fff;
   border-radius: 10px;
+  margin-top: 15px;
 }
 .cart {
-  /* background-color: #606060; */
+  
    height: fit-content;
    width: 19rem;
    padding: 20px;
@@ -30,7 +31,7 @@
   font-size: 28px;
   font-style: normal;
   font-weight: 800;
-  /* line-height: 100%; */
+  line-height: 100%;
   z-index: -1;
 }
 .cart-empty>span {
