@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { products } from "../../data/products";
-import { calcCartInfo,increaseProduct,decreaseProduct } from "../../features/cart/cartSlice";
+import {
+  calcCartInfo,
+  increaseProduct,
+  decreaseProduct,
+  deletCartItem,
+} from "../../features/cart/cartSlice";
 import "./cartStyling.css";
 import { useEffect } from "react";
 
@@ -9,11 +14,15 @@ export const Cart = () => {
 
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
+
   
-  useEffect (()=> {
+  
+  useEffect(() => {
     dispatch(calcCartInfo());
   }, [cart]);
-console.log(cart);
+
+
+
   return (
     <section className="cart-container">
       <div className="cart">
@@ -26,8 +35,7 @@ console.log(cart);
         ) : (
           <div className="cart-title">
             <h1>Your order:</h1>
-            {/* <span>{cart.cartItems.length}</span> */}
-            <span className="cart-count">{}</span>
+            <span className="cart-count">{cart.quantity}</span>
           </div>
         )}
 
@@ -37,8 +45,12 @@ console.log(cart);
               (product) => product.id === cartItem.productId
             );
 
+            if (cartItem.amount < 1){
+              dispatch(deletCartItem(cartItem.productId));
+            }
+              
             return cart.quantity !== 0 ? (
-              <div className="cart-item" key={!neededItem.productId}>
+              <div className="cart-item" key={neededItem.id}>
                 {/* photo */}
                 <img src={neededItem.img} alt="" />
                 {/* info */}
@@ -51,9 +63,18 @@ console.log(cart);
                 </div>
                 {/* button,count */}
                 <div className="cart-item-count">
-                  <button onClick={() => dispatch(decreaseProduct(neededItem.productId))}>-</button>
-                  <span>{}</span>
-                  <button onClick={() => dispatch(increaseProduct(neededItem.productId))}>+</button>
+                  <button
+                    onClick={() => dispatch(decreaseProduct(neededItem.id))}
+                  >
+                    -
+                  </button>
+                  <span>{cartItem.amount}</span>
+                  {/* <span>{neededItem.amount}</span> */}
+                  <button
+                    onClick={() => dispatch(increaseProduct(neededItem.id))}
+                  >
+                    +
+                  </button>
                 </div>
                 <br />
               </div>
@@ -63,7 +84,7 @@ console.log(cart);
         {/* total */}
         <div className="total-conteiner">
           <h2 className="cart-total">
-            Total: <b>{}$</b>
+            Total: <b>{cart.total}$</b>
           </h2>
         </div>
       </div>

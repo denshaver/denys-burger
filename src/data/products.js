@@ -15,14 +15,7 @@ export const products = [
     categoryId: "sku_id_1",
     weight: 500,
   },
-  {
-    id: "tr_id_2",
-    title: "Burger second",
-    img: "./img/boor2.png",
-    price: 30,
-    categoryId: "sku_id_1",
-    weight: 500,
-  },
+
 // ========
   {
     id: "tr_id_3",
