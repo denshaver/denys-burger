@@ -7,6 +7,9 @@
   color: rgb(8, 8, 8);
   font-family: Nunito;
 }
+html{
+  font-size: 62.5%;
+}
 body {
   
   background-color: #eeeded;
