@@ -15,13 +15,9 @@ export const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
-  
-  
   useEffect(() => {
     dispatch(calcCartInfo());
   }, [cart]);
-
-
 
   return (
     <section className="cart-container">
@@ -84,7 +80,7 @@ export const Cart = () => {
           <div className="cart-total">
             <div className="total-info">
               <p>Total</p>
-              <p>300 $</p>
+              <p>{cart.total} $</p>
             </div>
             <button>Place an order</button>
             <div className="cart-delivery">
