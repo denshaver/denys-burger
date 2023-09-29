@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { products } from "../../data/products";
 import {
-  addQuantity,
+  calcCartInfo,
+  increaseProduct,
+  decreaseProduct,
   deletCartItem,
-  increaseQuantity,
 } from "../../features/cart/cartSlice";
 import "./cartStyling.css";
+import { useEffect } from "react";
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -13,12 +15,13 @@ export const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
-  if (cart.quantity < 1) {
-    dispatch(deletCartItem());
-  }
+  
+  
+  useEffect(() => {
+    dispatch(calcCartInfo());
+  }, [cart]);
 
-  console.log(cart.quantity);
-  console.log(cart.cartItems.length);
+
 
   return (
     <section className="cart-container">
@@ -29,7 +32,7 @@ export const Cart = () => {
               <h3>Your order:</h3>
               <button>{cart.quantity}</button>
             </div>
-            <p>place your order...</p>
+            <p>lace your order...</p>
           </div>
         </div>
       ) : (

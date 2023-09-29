@@ -11,16 +11,16 @@ html{
   font-size: 62.5%;
 }
 body {
+  
   background-color: #eeeded;
+  overflow-x: hidden;
 }
 .container {
   margin: 0 auto;
   max-width: 1440px;
   width: 100%;
 }
-/* img {
-  max-width: 250px;
-} */
+
 button {
   color: black;
 }
@@ -33,11 +33,7 @@ main {
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: center;
-  align-items: center;
   margin-top: 85px;
+
 }
-.products {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-}
+

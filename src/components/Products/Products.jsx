@@ -8,8 +8,7 @@ import "./productStyling.css";
 export const Products = ({ category }) => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.modal.isOpen);
-  console.log(category);
-
+ 
   return (
     <section className="products-container">
       <h1>{categories.find((cat) => cat.id === category).title}</h1>
