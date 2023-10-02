@@ -1,8 +1,8 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import en from "../public/locales/en/en.json";
-import uk from "../public/locales/uk/uk.json";
+import en from "./locales/en/en.json";
+import uk from "./locales/uk/uk.json";
 
 
 const resources = {
@@ -19,8 +19,8 @@ i18next
 .use(initReactI18next)
 .init({
   resources,
-  lng: 'en', // Встановіть початкову мову
-  fallbackLng: 'en', // Встановіть мову за замовчуванням
+  lng: 'en', 
+  fallbackLng: 'en', 
   interpolation: {
     escapeValue: false,
   },

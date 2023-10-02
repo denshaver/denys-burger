@@ -7,11 +7,8 @@ import { Provider } from "react-redux";
 
 import "./i18n.js";
 
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-  
     <App />
-   
   </Provider>
 );

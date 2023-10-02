@@ -37,5 +37,17 @@
 
    "products":{
     "button":"Add to cart"
+   },
+
+   "cat":{
+      "Burger":"Burger",
+      "Snacks":"Snacks",
+      "Hot-Dogs":"Hot-Dogs",
+      "Kombo":"Kombo",
+      "Shawarma":"Shawarma",
+      "Pizza":"Pizza",
+      "Wok":"Wok",
+      "Desserts":"Desserts",
+      "Sauces": "Sauces"
    }
 }

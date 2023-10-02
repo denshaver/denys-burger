@@ -14,8 +14,8 @@ const LanguageToggle = () => {
 
   return (
     <div className='lng-toggle' >
-      <button className={lngEn?'lng-a lng-b':'lng-b'} onClick={() => handleLanguageChange('en')}>English</button>
-      <button className={!lngEn?'lng-a lng-b':'lng-b'} onClick={() => handleLanguageChange('uk')}>Українська</button>
+      <button className={lngEn?'lng-a lng-b':'lng-b'} onClick={() => handleLanguageChange('en')}>En</button>
+      <button className={!lngEn?'lng-a lng-b':'lng-b'} onClick={() => handleLanguageChange('uk')}>Укр</button>
     </div>
   );
 };
