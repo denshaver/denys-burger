@@ -69,8 +69,7 @@ export const Cart = () => {
                     -
                   </button>
                   <span>{cartItem.amount}</span>
-                  {/* <span>{neededItem.amount}</span> */}
-                  <button
+                                    <button
                     onClick={() => dispatch(increaseProduct(neededItem.id))}
                   >
                     +

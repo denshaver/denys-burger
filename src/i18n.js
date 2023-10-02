@@ -1,17 +1,29 @@
 import i18next from "i18next";
-import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import en from "../public/locales/en/en.json";
+import uk from "../public/locales/uk/uk.json";
 
-i18next.use(I18nextBrowserLanguageDetector).init({
-  fallbackLng: "en",
-  debug: true,
-  detection: {
-    order: ["localStorage", "navigator"],
-    caches: ["localStorage"],
+
+const resources = {
+  en: {
+    translation: en,
   },
+  uk: {
+    translation: uk,
+  },
+};
+
+i18next
+.use(LanguageDetector)
+.use(initReactI18next)
+.init({
+  resources,
+  lng: 'en', // Встановіть початкову мову
+  fallbackLng: 'en', // Встановіть мову за замовчуванням
   interpolation: {
     escapeValue: false,
-  }
-})
+  },
+});
 
-export default i18next
+export default i18next;
