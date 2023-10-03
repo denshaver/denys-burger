@@ -18,7 +18,7 @@ export const Products = ({ category, t }) => {
   return (
     
     <section className="products-container">
-      <h1>{categories.title}</h1>
+      <h1>{categories.find((cat) => cat.id === category).title}</h1>
       <div className="products">
         {products
           .filter((product) => product.categoryId === category)
