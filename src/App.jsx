@@ -13,7 +13,7 @@ import { Suspense } from "react";
 
 function App() {
   const { t, i18n } = useTranslation();
-  const [category, setCategory] = useState(t('cat.Burger'));
+  const [category, setCategory] = useState("sku_id_1");
   const isOpen = useSelector((state) => state.modal.isOpen);
 
 
