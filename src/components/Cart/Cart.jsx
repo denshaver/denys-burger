@@ -73,6 +73,7 @@ export const Cart = () => {
                       +
                     </button>
                   </div>
+
                 </div>
               ) : null;
             })}
