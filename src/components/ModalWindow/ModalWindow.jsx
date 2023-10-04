@@ -1,6 +1,5 @@
 import React from "react";
-// import i18next from "i18next";
-// import { useTranslation } from "react-i18next";
+
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../data/products";
 import { closeModal } from "../../features/modal/modalSlice";
@@ -8,21 +7,15 @@ import { addItem } from "../../features/cart/cartSlice";
 import { useState } from "react";
 import "./ModalWindowStyling.css";
 
-export const ModalWindow = () => {
+export const ModalWindow = ({t}) => {
   const dispatch = useDispatch();
-  // const {t, i18n} = useTranslation();
+  
   const productId = useSelector((state) => state.modal.productId);
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
   const [quantity, setQuantity] = useState(1);
 
-  // const changeLanguage = () => {
-  //   if (i18n.language === "en") {
-  //     i18next.changeLanguage("ua");
-  //   } else {
-  //     i18next.changeLanguage("en");
-  //   }
-  // }
+  
 
   if (quantity < 1) {
     dispatch(closeModal());
@@ -33,8 +26,8 @@ export const ModalWindow = () => {
     return (
       <div className="modal-container">
         <div className="modal">
-          <h1>Error occured</h1>
-          <h2>No product found</h2>
+          <h1>{t("modal.error")}</h1>
+          <h2>{t("modal.errorInfo")}</h2>
         </div>
       </div>
     );
@@ -49,20 +42,15 @@ export const ModalWindow = () => {
           <img src={neededProduct.img} alt="" />
 
           <div className="modal-subinfo">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus enim aspernatur fugiat distinctio nihil esse totam
-              optio repudiandae, maiores dolorum omnis dolore ipsa odit et
-              sapiente rem architecto accusantium temporibus?
-            </p>
+            <p>{t("modal.text")}            </p>
             <div className="modal-ingredients">
-              <h3>Ingredients:</h3>
+              <h3>{t("modal.ingredients")}</h3>
               <ul>
-                <li>Wheat bun</li>
-                <li>Beef cutlet</li>
-                <li>Red onion</li>
-                <li>Lettuce leaves</li>
-                <li>Mustard sauce</li>
+                <li>{t("modal.ingredientsList1")}</li>
+                <li>{t("modal.ingredientsList2")}</li>
+                <li>{t("modal.ingredientsList3")}</li>
+                <li>{t("modal.ingredientsList4")}</li>
+                <li>{t("modal.ingredientsList5")}</li>
               </ul>
               <span>{neededProduct.weight}g</span>
             </div>
@@ -83,7 +71,7 @@ export const ModalWindow = () => {
                 dispatch(closeModal());
               }}
             >
-              Add to cart
+              {t("products.button")}
             </button>
 
             <div className="modal-count">
