@@ -1,53 +1,51 @@
 {
-   " cart":{
-      "empty":"Your cart is empty",
-      "emptySpan":"place your order...",
-      "order":"Your order:",
-      "total":"Total:"
-   }, 
-   
-   "footer":{
-     
-     "designSpan":"The project is done:",
-     
-     "phone":"Phone for call",
-     "social":"Social networks"
-   },
-   
-   "header":{
-    "delivery":"Free delivery on orders over"
-   },
+  "cart": {
+    "empty": "Your cart is empty",
+    "emptySpan": "place your order...",
+    "order": "Your order:",
+    "total": "Total:",
+    "orderBut": "Place an order",
+    "FreeShipping": "Free shipping"
+  },
 
-   "modal":{
-    "error":"Error occured",
-    "errorInfo":"No product found",
-    "text":"The sun is high in the sky, and its rays dispel the darkness. People are walking in the park and enjoying a warm summer day. Children are playing on the swings, and parents are watching them from a bench. Life moves slowly forward, reminding us of the beauty of the moment.",
-    "ingredients":"Ingredients:",
-    "ingredientsList1":"Wheat bun",
-    "ingredientsList2":"Beef cutlet",
-    "ingredientsList3":"Red onion",
-    "ingredientsList4":"Lettuce leaves",
-    "ingredientsList5":"Mustard sauce",
-    "button":"Add to cart"
-   },
-   
-   "nav":{
-   
-   },
+  "footer": {
+    "designSpan": "The project is done:",
+    "phone": "Phone for call",
+    "social": "Social networks"
+  },
 
-   "products":{
-    "button":"Add to cart"
-   },
+  "header": {
+    "delivery": "Free delivery on orders over"
+  },
 
-   "cat":{
-      "Burger":"Burger",
-      "Snacks":"Snacks",
-      "Hot-Dogs":"Hot-Dogs",
-      "Kombo":"Kombo",
-      "Shawarma":"Shawarma",
-      "Pizza":"Pizza",
-      "Wok":"Wok",
-      "Desserts":"Desserts",
-      "Sauces": "Sauces"
-   }
+  "modal": {
+    "error": "Error occured",
+    "errorInfo": "No product found",
+    "text": "The sun is high in the sky, and its rays dispel the darkness. People are walking in the park and enjoying a warm summer day. Children are playing on the swings, and parents are watching them from a bench. Life moves slowly forward, reminding us of the beauty of the moment.",
+    "ingredients": "Ingredients:",
+    "ingredientsList1": "Wheat bun",
+    "ingredientsList2": "Beef cutlet",
+    "ingredientsList3": "Red onion",
+    "ingredientsList4": "Lettuce leaves",
+    "ingredientsList5": "Mustard sauce",
+    "button": "Add to cart"
+  },
+
+  "nav": {},
+
+  "products": {
+    "button": "Add to cart"
+  },
+
+  "cat": {
+    "Burger": "Burger",
+    "Snacks": "Snacks",
+    "Hot-Dogs": "Hot-Dogs",
+    "Kombo": "Kombo",
+    "Shawarma": "Shawarma",
+    "Pizza": "Pizza",
+    "Wok": "Wok",
+    "Desserts": "Desserts",
+    "Sauces": "Sauces"
+  }
 }
