@@ -1,20 +1,13 @@
 import React from "react";
 import { products } from "../../data/products";
 import { openModal } from "../../features/modal/modalSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { categories } from "../../data/categories";
 import "./productStyling.css";
-
-
-
 
 export const Products = ({ category, t }) => {
   const dispatch = useDispatch();
  
-
-
-
-  
   return (
     
     <section className="products-container">

@@ -34,7 +34,7 @@ function App() {
           <Head category={category} setCategory={setCategory} />
         </header>
         <main>
-          <Cart />
+          <Cart t={t} />
           <Products category={category} t={t} />
         </main>
         <Footers t={t} />

@@ -9,7 +9,7 @@ import {
 import "./cartStyling.css";
 import { useEffect } from "react";
 
-export const Cart = () => {
+export const Cart = ({t}) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
@@ -25,17 +25,17 @@ export const Cart = () => {
         <div className="cart">
           <div className="cart-title">
             <div className="cart-count">
-              <h3>Your order:</h3>
+              <h3>{t("cart.empty")}</h3>
               <button>{cart.quantity}</button>
             </div>
-            <p>lace your order...</p>
+            <p>{t("cart.emptySpan")}</p>
           </div>
         </div>
       ) : (
         <div className="cart">
           <div className="cart-title">
             <div className="cart-count">
-              <h3>Your order:</h3>
+              <h3>{t("cart.order")}</h3>
               <button>{cart.quantity}</button>
             </div>
           </div>
@@ -59,7 +59,7 @@ export const Cart = () => {
                   <div className="cart-item__count">
                     <button
                       onClick={() =>
-                        dispatch(increaseQuantity(cart.quantity - 1))
+                        dispatch(decreaseProduct(cartItem.productId))
                       }
                     >
                       -
@@ -68,26 +68,25 @@ export const Cart = () => {
                     <span>{cart.quantity}</span>
 
                     <button
-                      onClick={() => dispatch(addQuantity(cart.quantity + 1))}
+                      onClick={() => dispatch(increaseProduct(cartItem.productId))}
                     >
                       +
                     </button>
                   </div>
-
                 </div>
               ) : null;
             })}
           </div>
           <div className="cart-total">
             <div className="total-info">
-              <p>Total</p>
+              <p>{t("cart.total")}</p>
               <p>{cart.total} $</p>
             </div>
-            <button>Place an order</button>
+            <button>{t("cart.orderBut")}</button>
             <div className="cart-delivery">
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
 
-              <p>Free shipping</p>
+              <p>{t("cart.FreeShipping")}</p>
             </div>
           </div>
         </div>
