@@ -1,7 +1,7 @@
 import React from "react";
 import "./footersStyling.css";
 
-export const Footers = () => {
+export const Footers = ({t}) => {
   return (
     <div className="footers">
       <div className="logo">
@@ -12,16 +12,16 @@ export const Footers = () => {
 
         <div className="design">
           <h3>
-            @Skadi ev,2023 <br />
+          @Skadi ev,2023 <br />
             <span>
-              Design: <b>DenysVysotskyi & co.</b>
+            {t('footer.designSpan')}<b>DenysVysotskyi & co.</b>
             </span>
           </h3>
         </div>
       </div>
 
       <div className="contact">
-        <h2>Phone for call</h2>
+        <h2>{t('footer.phone')}</h2>
         <br />
         <p>
           <img src="img/Call.svg" alt="" />
@@ -30,7 +30,7 @@ export const Footers = () => {
       </div>
 
       <div className="social">
-        <h2>Social networks</h2>
+        <h2>{t('footer.social')}</h2>
         <br />
      <div className="social-img">
      <a href="#">

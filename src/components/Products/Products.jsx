@@ -1,15 +1,15 @@
 import React from "react";
 import { products } from "../../data/products";
-import { closeModal, openModal } from "../../features/modal/modalSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { openModal } from "../../features/modal/modalSlice";
+import { useDispatch } from "react-redux";
 import { categories } from "../../data/categories";
 import "./productStyling.css";
 
-export const Products = ({ category }) => {
+export const Products = ({ category, t }) => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.modal.isOpen);
  
   return (
+    
     <section className="products-container">
       <h1>{categories.find((cat) => cat.id === category).title}</h1>
       <div className="products">
@@ -23,12 +23,13 @@ export const Products = ({ category }) => {
                 <h3>{product.title}</h3>
                 <span>{product.weight}g</span>
                 <button onClick={() => dispatch(openModal(product.id))}>
-                  Add to cart
+                  {t("products.button")}
                 </button>
               </div>
             );
           })}
       </div>
     </section>
+
   );
 };
