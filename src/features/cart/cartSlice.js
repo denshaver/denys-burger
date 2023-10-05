@@ -1,28 +1,46 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { products } from "../../data/products";
 
 const initialState = {
   cartItems: [],
   quantity: 0,
   total: 0,
 };
-
 // { productId = "", amount = 2 };
+const groupCartItemsById = (cartItems) => {
+  const groupedCartItems = [];
+
+  cartItems.forEach((cartItem) => {
+    const existingItem = groupedCartItems.find(
+      (item) => item.productId === cartItem.productId
+    );
+
+    if (existingItem) {
+      existingItem.amount += 1;
+    } else {
+      groupedCartItems.push({ ...cartItem, quantity: 1 });
+    }
+  });
+  return groupedCartItems;
+};
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      state.cartItems.push(action.payload);
-    },
-
+   
+      addAndGroupItem: (state, action) => {
+        const newItem = action.payload;
+        state.cartItems.push(newItem);
+        state.cartItems = groupCartItemsById(state.cartItems);
+      },
+      
     deletCartItem: (state, action) => {
-      const deletedItem = state.cartItems.find(
-        (item) => item.productId === action.payload
-      );
+      const items = state.cartItems.find(
+        (item) => item.productId);
+      const deletedItem = items === action.payload
+        ? items : action.payload;
       state.cartItems = state.cartItems.filter(
-        (item) => item.productId !== action.payload
+        (item) => item.productId !== deletedItem.productId
       );
     },
 
@@ -50,13 +68,14 @@ const cartSlice = createSlice({
       state.total = total;
       state.quantity = quantity;
     },
+    
   },
 });
 
 export default cartSlice.reducer;
 export const {
-  addItem,
-  deletCartItem,
+   addAndGroupItem,
+   deletCartItem,
   calcCartInfo,
   increaseProduct,
   decreaseProduct,
