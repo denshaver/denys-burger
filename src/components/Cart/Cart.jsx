@@ -5,7 +5,7 @@ import {
   increaseProduct,
   decreaseProduct,
   deletCartItem,
-} from "../../features/cart/cartSlice";
+ } from "../../features/cart/cartSlice";
 import "./cartStyling.css";
 import { useEffect } from "react";
 
@@ -14,11 +14,17 @@ export const Cart = ({t}) => {
 
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
-
+ 
   useEffect(() => {
     dispatch(calcCartInfo());
   }, [cart]);
 
+  if (cart.cartItems.find((item) => item.amount < 1)) 
+  dispatch(deletCartItem(cart.cartItems.find((item) => item.amount < 1)));
+
+console.log(cart.cartItems);
+
+  
   return (
     <section className="cart-container">
       {!hasItemsInCart || cart.quantity < 1 ? (
@@ -47,7 +53,7 @@ export const Cart = ({t}) => {
               );
 
               return cart.quantity !== 0 ? (
-                <div className="cart-item" key={!neededItem.productId}>
+                <div className="cart-item" key={neededItem.productId}>
                   <div className="cart-item__info">
                     <img src={neededItem.img} alt="" />
                     <div className="item-info__block">
@@ -65,7 +71,7 @@ export const Cart = ({t}) => {
                       -
                     </button>
 
-                    <span>{cart.quantity}</span>
+                    <span >{cartItem.amount}</span>
 
                     <button
                       onClick={() => dispatch(increaseProduct(cartItem.productId))}

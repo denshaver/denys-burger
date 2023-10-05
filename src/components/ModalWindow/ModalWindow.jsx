@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../data/products";
 import { closeModal } from "../../features/modal/modalSlice";
-import { addItem } from "../../features/cart/cartSlice";
+import { addAndGroupItem} from "../../features/cart/cartSlice";
 import { useState } from "react";
 import "./ModalWindowStyling.css";
 
@@ -11,7 +11,7 @@ export const ModalWindow = ({t}) => {
   const dispatch = useDispatch();
   
   const productId = useSelector((state) => state.modal.productId);
-  const cart = useSelector((state) => state.cart);
+  
   const neededProduct = products.find((product) => product.id === productId);
   const [quantity, setQuantity] = useState(1);
 
@@ -62,7 +62,7 @@ export const ModalWindow = ({t}) => {
             <button
               onClick={() => {
                 dispatch(
-                  addItem({
+                  addAndGroupItem({
                     productId,
                     amount: quantity,
                     price: neededProduct.price,
