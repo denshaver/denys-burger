@@ -1,16 +1,12 @@
 import React from "react";
 import "./headerStyling.css";
-import ButtonsLang from "./LanguageToggle"
 
 const Logos = ({t}) => {
   return (
     <div className="burger-logo-header">
       
       <div className="burger-circle"></div>
-       <div className="lng">
-       <ButtonsLang />
-       </div>
-      <div className="logo-burger-img">
+        <div className="logo-burger-img">
         <img src="./img/logo/h1-text.svg" alt="" />
         <img src="./img/logo/h1.svg" alt="" />
       </div>
