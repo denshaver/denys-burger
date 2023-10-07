@@ -9,7 +9,6 @@ export const Products = ({ category, t }) => {
   const dispatch = useDispatch();
  
   return (
-    
     <section className="products-container">
       <h1>{categories.find((cat) => cat.id === category).title}</h1>
       <div className="products">
