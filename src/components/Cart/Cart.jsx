@@ -4,27 +4,26 @@ import {
   calcCartInfo,
   increaseProduct,
   decreaseProduct,
-  deletCartItem,
- } from "../../features/cart/cartSlice";
+  deleteProduct,
+} from "../../features/cart/cartSlice";
 import "./cartStyling.css";
 import { useEffect } from "react";
 
-export const Cart = ({t}) => {
+export const Cart = ({ t }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
- 
+
   useEffect(() => {
     dispatch(calcCartInfo());
   }, [cart]);
 
-  if (cart.cartItems.find((item) => item.amount < 1)) 
-  dispatch(deletCartItem(cart.cartItems.find((item) => item.amount < 1)));
+  // if (cart.cartItems.find((item) => item.amount < 1))
+  // dispatch(deleteProduct(cart.cartItems.find((item) => item.amount < 1)));
 
-console.log(cart.cartItems);
+  console.log(cart.cartItems);
 
-  
   return (
     <section className="cart-container">
       {!hasItemsInCart || cart.quantity < 1 ? (
@@ -64,17 +63,21 @@ console.log(cart.cartItems);
                   </div>
                   <div className="cart-item__count">
                     <button
-                      onClick={() =>
-                        dispatch(decreaseProduct(cartItem.productId))
-                      }
+                      onClick={() => {
+                        if (cartItem.amount <= 1)
+                          dispatch(deleteProduct(cartItem.productId));
+                        dispatch(decreaseProduct(cartItem.productId));
+                      }}
                     >
                       -
                     </button>
 
-                    <span >{cartItem.amount}</span>
+                    <span>{cartItem.amount}</span>
 
                     <button
-                      onClick={() => dispatch(increaseProduct(cartItem.productId))}
+                      onClick={() =>
+                        dispatch(increaseProduct(cartItem.productId))
+                      }
                     >
                       +
                     </button>
