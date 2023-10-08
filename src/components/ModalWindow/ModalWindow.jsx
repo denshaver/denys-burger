@@ -7,15 +7,13 @@ import { addItem } from "../../features/cart/cartSlice";
 import { useState } from "react";
 import "./ModalWindowStyling.css";
 
-export const ModalWindow = ({t}) => {
+export const ModalWindow = ({ t }) => {
   const dispatch = useDispatch();
-  
+
   const productId = useSelector((state) => state.modal.productId);
   const cart = useSelector((state) => state.cart);
   const neededProduct = products.find((product) => product.id === productId);
   const [quantity, setQuantity] = useState(1);
-
-  
 
   if (quantity < 1) {
     dispatch(closeModal());
@@ -36,15 +34,20 @@ export const ModalWindow = ({t}) => {
   return (
     <div className="modal-container">
       <div className="modal">
-        <h1>{neededProduct.title}</h1>
+        <div className="title-product__card">
+          <h2>{neededProduct.title}</h2>
+          <button>
+            <img src="img/close.svg" alt="" />
+          </button>
+        </div>
 
         <div className="modal-info">
           <img src={neededProduct.img} alt="" />
 
           <div className="modal-subinfo">
-            <p>{t("modal.text")}            </p>
+            <p className="product-descr">{t("modal.text")} </p>
             <div className="modal-ingredients">
-              <h3>{t("modal.ingredients")}</h3>
+              <p>{t("modal.ingredients")}</p>
               <ul>
                 <li>{t("modal.ingredientsList1")}</li>
                 <li>{t("modal.ingredientsList2")}</li>
@@ -57,7 +60,7 @@ export const ModalWindow = ({t}) => {
           </div>
         </div>
 
-        <div className="modal-button">
+        <div className="modal-buttons">
           <div className="modal-button">
             <button
               onClick={() => {
@@ -76,13 +79,11 @@ export const ModalWindow = ({t}) => {
 
             <div className="modal-count">
               <button onClick={() => setQuantity((prev) => prev - 1)}>-</button>
-
               <span>{quantity}</span>
-
               <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
           </div>
-          <p>{neededProduct.price * quantity}$</p>
+          <span className="price-product">{neededProduct.price * quantity}$</span>
         </div>
       </div>
     </div>
