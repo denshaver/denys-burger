@@ -3,13 +3,11 @@ import "./LngChoice.css";
 import { useTranslation } from "react-i18next";
 
 export const LngChoice = ({ choiceLanguage }) => {
-  const [lngEn, setLngEn] = useState("en");
   const { i18n } = useTranslation();
 
   const handleLanguageChange = (lng) => {
     i18n.changeLanguage(lng);
     choiceLanguage();
-    setLngEn((prev) => !prev);
   };
 
   return (
