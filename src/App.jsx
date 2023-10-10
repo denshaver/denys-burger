@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Cart } from "./components/Cart/Cart";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { useSelector } from "react-redux";
@@ -20,7 +20,6 @@ function App() {
   const choiceLanguage = () => {
     setLanguage((prev) => !prev);
   };
-  console.log(language);
 
   return (
     language

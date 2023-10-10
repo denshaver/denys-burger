@@ -15,14 +15,11 @@ export const Cart = ({ t }) => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
+  const isOpen = useSelector((state) => state.modal.isOpen);
+
   useEffect(() => {
     dispatch(calcCartInfo());
   }, [cart]);
-
-  // if (cart.cartItems.find((item) => item.amount < 1))
-  // dispatch(deleteProduct(cart.cartItems.find((item) => item.amount < 1)));
-
-  console.log(cart.cartItems);
 
   return (
     <section className="cart-container">
@@ -91,6 +88,7 @@ export const Cart = ({ t }) => {
               <p>{t("cart.total")}</p>
               <p>{cart.total} $</p>
             </div>
+            {/* кнопка замовлення */}
             <button>{t("cart.orderBut")}</button>
             <div className="cart-delivery">
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />

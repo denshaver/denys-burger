@@ -15,10 +15,10 @@ export const ModalWindow = ({ t }) => {
   const neededProduct = products.find((product) => product.id === productId);
   const [quantity, setQuantity] = useState(1);
 
-  if (quantity < 1) {
-    dispatch(closeModal());
-    setQuantity(0);
-  }
+  // if (quantity < 1) {
+  //   dispatch(closeModal());
+  //   setQuantity(0);
+  // }
 
   if (!neededProduct) {
     return (
@@ -38,7 +38,9 @@ export const ModalWindow = ({ t }) => {
 
         <div className="modal-info">
           <img src={neededProduct.img} alt="" />
-
+            <button onClick={() =>
+              dispatch(closeModal()) 
+              || dispatch(setQuantity(0))} className="modal-close"><img src="./img/icon-close.png" alt="" /></button>
           <div className="modal-subinfo">
             <p>{t("modal.text")} </p>
             <div className="modal-ingredients">
