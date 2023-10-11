@@ -90,6 +90,7 @@
   font-size: 16px;
 }
 .cart-item__count > button {
+  width: 20px;
   border: none;
   cursor: pointer;
 }
@@ -105,11 +106,12 @@
   line-height: 130%;
 }
 .cart-total > button {
+  width: 100%;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   background: #ff7020;
-  padding: 12px 81.5px;
+  padding: 12px 0px;
   margin-bottom: 8px;
 
   color: #fff;

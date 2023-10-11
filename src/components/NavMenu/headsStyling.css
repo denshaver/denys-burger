@@ -1,6 +1,9 @@
 
 .wrapper-categories {
-  padding: 40px 0 50px 75px;
+  width: 100%;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 40px 0 50px 0px;
 }
 .categories {
   display: flex;
