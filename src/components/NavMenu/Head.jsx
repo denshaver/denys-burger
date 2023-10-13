@@ -70,7 +70,7 @@ export const Head = ({ category, setCategory }) => {
               className={cat.id === category ? "choosen" : ""}
               key={cat.id}
             >
-              <img src={cat.img} alt=""/>
+              <img src={cat.img} alt="" />
               {cat.title}
             </button>
           );

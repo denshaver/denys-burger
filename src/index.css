@@ -6,7 +6,7 @@
   box-sizing: border-box;
   color: rgb(8, 8, 8);
 }
-html{
+html {
   background: #f9f9f9;
   font-size: 62.5%;
   font-family: "Nunito", sans-serif;
@@ -17,7 +17,11 @@ button {
 }
 
 .wrapper {
-  width: 100%;
+  width: 95%;
   max-width: 1290px;
   margin: 0 auto;
+}
+
+.container {
+  overflow: hidden;
 }

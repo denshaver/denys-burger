@@ -15,7 +15,7 @@ export const products = [
     categoryId: "sku_id_1",
     weight: 500,
   },
-// =======
+  // =======
   {
     id: "tr_id_3",
     title: "Snacks ",
@@ -24,7 +24,7 @@ export const products = [
     categoryId: "sku_id_2",
     weight: 500,
   },
-// ==========
+  // ==========
   {
     id: "tr_id_4",
     title: "Hot-Dogs first",
@@ -41,7 +41,7 @@ export const products = [
     categoryId: "sku_id_3",
     weight: 500,
   },
-// ========
+  // ========
   {
     id: "tr_id_6",
     title: "Kombo first",
@@ -75,7 +75,7 @@ export const products = [
     categoryId: "sku_id_5",
     weight: 500,
   },
-// ==========
+  // ==========
   {
     id: "tr_id_10",
     title: "Pizza first",
