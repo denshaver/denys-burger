@@ -1,117 +1,75 @@
-.burger-logo-header {
+header{
+  width: 100%;
+  height: 466px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: bottom;
   align-items: center;
-  width: 100%;
-  overflow: hidden;
-  height: 355px;
-  margin-bottom: 50px;
 }
-
-
 .burger-circle {
   width: 2880px;
   height: 2880px;
-  background-color: #ffab08;
-  position: absolute;
- 
   border-radius: 2880px;
-  top: -2490px;
-  z-index: -2;
+  background: #ffab08;
+  position: absolute;
+  top: -2414px;
+  z-index: -1;
 }
-
-
-.logo-burger-img {
- width: 100px;
+.wrapper-header{
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 25px 0;
-  
+  position: relative;
 }
-.logo-burger-img>img {
-  width:inherit;
+.logo-burger-img {
+  display: flex;
+  gap: 4px;
+  margin-top: 22px;
 }
 .burger-logo {
-  width: 70%;
-  height: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
+  gap: 21px;
+  margin-top: 22px;
 }
 .burger-logo > img {
-  width: 280px;
-  position: relative;
-  top: -25px;
-
+  order: 0;
 }
-
 .burger-logo-info {
   display: flex;
   flex-direction: column;
-  gap: 45px;
-  margin-top: 30px;
-}
+  padding-top: 46px;
 
-.burger-logo-info > h1 {
-  width: fit-content;
-  color: #fff;
-  font-family: Nunito;
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 120%;
+  order: 1;
 }
-.burger-logo-info > h1 > span {
-  color: #ff5c00;
-  font-family: Nunito;
-  font-size: 50px;
-  font-style: normal;
+.burger-logo-info > h4 {
+  color: #fff;
+  font-size: 5rem;
   font-weight: 800;
-  line-height: 120%;
+}
+.burger-logo-info > h4 > span {
+  color: #ff5c00;
 }
 .burger-logo-info > p {
-  color: #fff;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  color: #ffffff;
+  font-size: 1.6rem;
+  margin-top: 52px;
 }
-.burger-logo-info > p > b {
-  color: #fff;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
+.burger-logo-info > p span {
+  color: #ffffff;
+  font-size: 1.6rem;
   font-weight: 600;
-  line-height: normal;
 }
-/* .lng{
-  position: absolute;
-  left: 50px;
-} */
 .lng-toggle{
   position: absolute;
-  left: 10px;
-  margin-top: 10px;
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 15px;
-
+  left: 0;
+  top: 22px;
+  display: flex;
+  gap: 15px;
 }
-
 .lng-b{
- 
   border: none;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-size: 1.6rem;
   color: #000;
   cursor: pointer;
   background-color: #ffab08;

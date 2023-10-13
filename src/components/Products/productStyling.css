@@ -1,98 +1,70 @@
 /* products */
-
-.products-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 15px;
-  width: 70%;
-  position: relative;
+.products-container{
+  width: 75%;
 }
-.products-container > h1 {
-  width: fit-content;
-  position: absolute;
-  top: -50px;
-   ;
-  color: #ff7020;
-  font-family: Nunito;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 800;
-  letter-spacing: 5px;
-  /* padding: 10px; */
-  /* border-bottom: #FFAB08 solid 5px;
-  border-radius: 50%; */
+.choosen-category__title {
+  color: #000;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 120%;
+
+  margin-bottom: 24px;
 }
 .products {
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
 }
 .product-item {
+  min-width: 300px;
+  border-radius: 18px;
+  background: #fff;
   padding: 12px;
-  width: 300px;
-  height: 430px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  background-color: #fff;
-  border-radius: 10px;
 }
-.product-item > img {
+.product-item-img > img {
   width: 276px;
   height: 220px;
   border-radius: 12px;
 }
-.product-item > h2 {
+.product-item-info{
+  margin-top: 16px;
+}
+.product-price {
   color: #000;
-  font-family: Nunito;
-  font-size: 24px;
-  font-style: normal;
+  font-size: 2.4rem;
   font-weight: 600;
   line-height: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  display: flex;
 }
-.product-item > h3 {
+.product-desc {
   color: #000;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
+  font-size: 1.6rem;
   line-height: 130%;
-  justify-content: flex-start;
-  align-items: center;
-  display: flex;
+
+  margin-top: 8px;
+  margin-bottom: 29px;
 }
-.product-item > span {
+.product-weight {
   color: #b1b1b1;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: 130%;
-  justify-content: flex-start;
-  align-items: center;
-  display: flex;
 }
-.product-item > button {
-  display: flex;
+.add-product {
   width: 100%;
-  height: 40px;
-  padding: 11px 42px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
   border: none;
   border-radius: 12px;
   background: #f2f2f3;
+  padding: 11px 0px;
   cursor: pointer;
+
+  color: #000;
+  font-size: 1.6rem;
+  line-height: 100%;
+
+  margin-top: 8px;
 }
-.product-item > button:hover {
-  cursor: pointer;
+.add-product:hover {
   background: #f86310;
   color: #fff;
 }

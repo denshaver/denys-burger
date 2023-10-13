@@ -16,7 +16,6 @@ function App() {
   const [category, setCategory] = useState("sku_id_1");
   const isOpen = useSelector((state) => state.modal.isOpen);
 
-
   const changeLanguage = () => {
     if (i18n.language === "en") {
       i18next.changeLanguage("ua");
@@ -31,11 +30,13 @@ function App() {
       <div className="container">
         <header>
           <Logo t={t} />
-          <Head category={category} setCategory={setCategory} />
         </header>
         <main>
-          <Cart t={t} />
-          <Products category={category} t={t} />
+          <Head category={category} setCategory={setCategory} />
+          <div className="wrapper wrapper-main">
+            <Cart t={t} />
+            <Products category={category} t={t} />
+          </div>
         </main>
         <Footers t={t} />
       </div>

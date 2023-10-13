@@ -96,6 +96,7 @@ export const Cart = ({ t }) => {
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
 
               <p>{t("cart.FreeShipping")}</p>
+              {/* <span>Fold</span> */}
             </div>
           </div>
         </div>
