@@ -28,7 +28,8 @@ class Order(models.Model):
         max_length=100,
         verbose_name='Delivery method',
         choices=DELIVERY_METHODS)
-    total_amount = models.IntegerField(verbose_name='Total amount')
+    total_amount = models.IntegerField(verbose_name='Total amount',
+                                       default=0)
     full_address = models.CharField(max_length=450,
                                     verbose_name='Street, house, flat',
                                     blank=True,
@@ -47,7 +48,7 @@ class Order(models.Model):
         verbose_name_plural = 'Orders'
 
     def __str__(self) -> str:
-        return f'Order: {self.id}. Status: {self.order_status}'
+        return f'Order: {self.id}. Status: {self.status}'
 
 
 class OrderProducts(models.Model):
