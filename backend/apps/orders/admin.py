@@ -22,7 +22,8 @@ class OrderAdmin(admin.ModelAdmin):
                              'customer_phone',
                              'status',
                              'delivery_method',
-                             'total_amount')}),
+                             'total_amount',
+                             'session_id')}),
         ('Shipping info', {'fields': (
             'full_address',
             'floor',
