@@ -25,13 +25,23 @@ class ProductsViewSet(mixins.ListModelMixin,
         products = BaseManager.get_query_with_prefetch(
             Product.objects.get_by_category(category_id), ['ingredients']
         )
+
         if products is None:
             return Response({
                 'error': 'No such products by provided data'
             }, status=status.HTTP_400_BAD_REQUEST)
 
+        page = self.paginate_queryset(products)
+        if page is not None:
+            serializer = self.serializer_class(
+                many=True,
+                instance=page
+            )
+            return self.get_paginated_response(serializer.data)
+
         serializer = self.serializer_class(
             many=True,
             instance=products
         )
+
         return Response(serializer.data, status=status.HTTP_200_OK)
