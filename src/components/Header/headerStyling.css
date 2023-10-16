@@ -80,3 +80,99 @@ header{
 .lng-a{
   color: #fff;
 }
+
+@media (max-width: 1024px) {
+  .wrapper {
+    max-width: 960px;
+  }
+  .lng-toggle{
+    left: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+    /* =====================HEADER================= */
+    header {
+      width: 100%;
+      height: 349px;
+    }
+    .burger-circle {
+      width: 2540px;
+      height: 2540px;
+      border-radius: 2540px;
+      top: -2191px;
+    }
+    .burger-logo {
+      display: flex;
+      gap: 10px;
+    }
+    .burger-logo > img {
+      width: 227px;
+      height: 229px;
+    }
+    .burger-logo-info {
+      display: flex;
+      flex-direction: column;
+      padding-top: 27px;
+    }
+    .burger-logo-info > h4 {
+      font-size: 3.6rem;
+      line-height: 120%;
+    }
+    .burger-logo-info > p {
+      margin-top: 26px;
+    }
+}
+@media (max-width: 320px){
+  .wrapper {
+    max-width: 300px;
+  }
+  header {
+    width: 100%;
+    height: 459px;
+  }
+  .burger-circle {
+    width: 611px;
+    height: 611px;
+    border-radius: 611px;
+    top: -152px;
+  }
+  .burger-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+  .burger-logo > img {
+    order: 1;
+  }
+  .burger-logo-info {
+    text-align: center;
+    padding-top: 0px;
+
+    order: 0;
+  }
+  .burger-logo-info > h4 {
+    font-size: 3rem;
+
+  }
+  .burger-logo-info > p {
+    font-size: 1.2rem;
+    margin-top: 16px;
+  }
+  .lng-toggle{
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    left: 10px;
+    top: 24px;
+  
+  }
+  .lng-toggle > button{
+    font-size: 1.2rem;
+  }
+}

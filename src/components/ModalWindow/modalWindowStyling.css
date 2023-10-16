@@ -13,18 +13,19 @@
   z-index: 5;
 }
 .modal {
+  width: 100%;
   max-width: 684px;
   border-radius: 24px;
   background: #fff;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
   padding: 24px 24px 36px;
+  position: relative;
 }
 .title-product__card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-  position: relative;
 }
 .title-product__card > h2 {
   color: #000;
@@ -44,8 +45,8 @@
 
   cursor: pointer;
   position: absolute;
-  right: 0;
-  top: 0;
+  top: 24px;
+  right: 24px;
 }
 .modal-info {
   display: flex;
@@ -87,6 +88,7 @@
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 130%;
+  margin-top: 1px;
 }
 .modal-ingredients > span {
   color: #b1b1b1;
@@ -135,4 +137,110 @@
   font-size: 2.4rem;
   font-weight: 600;
   line-height: 130%;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+    max-width: 524px;
+    padding: 16px 16px 24px;
+  }
+  .title-product__card {
+    margin-bottom: 16px;
+  }
+  .title-product__card > h2 {
+    font-size: 2.8rem;
+  }
+  .modal-info {
+    gap: 8px;
+
+    margin-bottom: 24px;
+  }
+  .modal-info > img {
+    height: 180px;
+    border-radius: 16px;
+  }
+  .modal-subinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .modal-subinfo > p {
+    font-size: 1.2rem;
+  }
+  .modal-ingredients > p {
+    font-size: 1rem;
+  }
+  .modal-ingredients > ul li {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 1rem;
+  }
+  .modal-ingredients > span {
+    font-size: 1rem;
+  }
+  .modal-button {
+    gap: 8px;
+  }
+  .modal-button > button {
+    width: 80%;
+    border-radius: 8px;
+    padding: 9px 85px;
+
+    font-size: 1.2rem;
+  }
+  .modal-count {
+    width: 74px;
+    height: 30px;
+    border-radius: 8px;
+    gap: 17px;
+
+    font-size: 1.2rem;
+  }
+  .price-product {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 320px) {
+  .modal {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 10px 32px 10px;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  .title-product__card {
+    margin-bottom: 12px;
+  }
+  .title-product__card > h2 {
+    margin-top: 22px;
+  }
+  .title-product__card > button {
+    top: 10px;
+    right: 10px;
+  }
+  .modal-info {
+    flex-direction: column;
+    gap: 16px;
+
+    margin-bottom: 98px;
+  }
+  .modal-info > img {
+    width: 300px;
+    height: 232px;
+  }
+  .modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .modal-button > button {
+    width: 80%;
+    border-radius: 8px;
+    padding: 9px 0px;
+  }
+  .price-product {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
