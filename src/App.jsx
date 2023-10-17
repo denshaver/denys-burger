@@ -6,8 +6,6 @@ import { Head } from "./components/NavMenu/Head";
 import { Footers } from "./components/Footers/Footers";
 import { Products } from "./components/Products/Products";
 import Logo from "./components/Header/Logos";
-
-// import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
 import { LngChoose } from "./components/LngChoose/LngChoose";
@@ -17,7 +15,6 @@ function App() {
   const [category, setCategory] = useState("sku_id_1");
   const isOpen = useSelector((state) => state.modal.isOpen);
   const [lng , setLng] = useState(true);
-  
   const chooseLng = () =>{
     setLng((prev)=>!prev)
   }

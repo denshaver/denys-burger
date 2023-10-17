@@ -18,6 +18,11 @@
     "delivery": "Free delivery on orders over"
   },
 
+  "logos":{
+    "info-h4":"Only the most ",
+    "info-span":"delicious burgers"
+  },
+
   "modal": {
     "error": "Error occured",
     "errorInfo": "No product found",
