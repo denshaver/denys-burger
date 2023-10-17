@@ -24,13 +24,13 @@ header{
 }
 .logo-burger-img {
   display: flex;
-  gap: 4px;
-  margin-top: 22px;
+  gap: 0.25rem;
+  margin-top: 1.375rem;
 }
 .burger-logo {
   display: flex;
-  gap: 21px;
-  margin-top: 22px;
+  gap: 1.3125rem;
+  margin-top: 1.375rem;
 }
 .burger-logo > img {
   order: 0;
@@ -38,7 +38,7 @@ header{
 .burger-logo-info {
   display: flex;
   flex-direction: column;
-  padding-top: 46px;
+  padding-top: 2.875rem;
 
   order: 1;
 }
@@ -53,30 +53,10 @@ header{
 .burger-logo-info > p {
   color: #ffffff;
   font-size: 1.6rem;
-  margin-top: 52px;
+  margin-top: 3.25rem;
 }
 .burger-logo-info > p span {
   color: #ffffff;
   font-size: 1.6rem;
   font-weight: 600;
-}
-.lng-toggle{
-  position: absolute;
-  left: 0;
-  top: 22px;
-  display: flex;
-  gap: 15px;
-}
-.lng-b{
-  border: none;
-  font-size: 1.6rem;
-  color: #000;
-  cursor: pointer;
-  background-color: #ffab08;
-}
-.lng-b:hover{
-  color: #fff;
-}
-.lng-a{
-  color: #fff;
 }
