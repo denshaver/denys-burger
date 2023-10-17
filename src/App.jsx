@@ -10,22 +10,22 @@ import Logo from "./components/Header/Logos";
 // import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
+import { LngChoose } from "./components/LngChoose/LngChoose";
 
 function App() {
   const { t, i18n } = useTranslation();
   const [category, setCategory] = useState("sku_id_1");
   const isOpen = useSelector((state) => state.modal.isOpen);
-
-  const changeLanguage = () => {
-    if (i18n.language === "en") {
-      i18next.changeLanguage("ua");
-    } else {
-      i18next.changeLanguage("en");
-    }
-  };
+  const [lng , setLng] = useState(true);
+  
+  const chooseLng = () =>{
+    setLng((prev)=>!prev)
+  }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    lng
+    ?<LngChoose i18n={i18n} chooseLng= {chooseLng}/>
+    :(<Suspense fallback={<div>Loading...</div>}>
       {isOpen && <ModalWindow t={t} />}
       <div className="container">
         <header>
@@ -40,7 +40,7 @@ function App() {
         </main>
         <Footers t={t} />
       </div>
-    </Suspense>
+    </Suspense>)
   );
 }
 
