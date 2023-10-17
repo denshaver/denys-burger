@@ -1,0 +1,48 @@
+.lng-toggle{
+  width: 100%;
+  height: calc(100vh + 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  background: #ffab08;
+}
+
+.lng-conteiner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.lng-title{
+  color: #ff5c00;
+  font-size: 4.4rem;
+  font-weight: 400;
+}
+.lng-en{
+  width: 30rem;
+  height: 250px;
+  background-image: url(./img/en.png);
+  background-position: center;
+  background-size: 300px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: inherit;
+  color: rgb(226, 123, 49);
+  font-size: 38px;
+  text-shadow: 1px 1px 1px black;
+}
+.lng-ua{
+  width: 30rem;
+  height: 250px;
+  background-image: url(./img/uk.png);
+  background-position: center;
+  background-size: 300px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: inherit;
+  color: chocolate;
+  font-size: 38px;
+  text-shadow: 1px 1px 1px black;
+}
