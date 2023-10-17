@@ -36,6 +36,18 @@
     "button": "Add to cart"
   },
 
+  "order":{
+    "title":"Delivery",
+    "name":"You name",
+    "phone":"Enter you phone",
+    "Self-delivery":"Self-delivery",
+    "Delivery":"Delivery",
+    "Street":"Street, house, apartment",
+    "On-top-of":"On top of",
+    "Entryphone":"Entryphone",
+    "order":"  Order"
+  },
+
   "nav": {},
 
   "products": {
