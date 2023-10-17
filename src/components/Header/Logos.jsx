@@ -1,6 +1,5 @@
 import React from "react";
 import "./headerStyling.css";
-import ButtonsLang from "./LanguageToggle";
 
 const Logos = ({ t }) => {
   return (
@@ -17,15 +16,12 @@ const Logos = ({ t }) => {
           <img src="./img/logo/logo-burger.svg" alt="" />
           <div className="burger-logo-info">
             <h4>
-            Only the most <br /> <span>delicious burgers!</span>
+            {t("logos.info-h4")} <br /> <span>{t("logos.info-span")} </span>
             </h4>
             <p>
               {t("header.delivery")} <span>$100</span>
             </p>
           </div>
-        </div>
-        <div className="lng">
-          <ButtonsLang />
         </div>
       </div>
     </>
