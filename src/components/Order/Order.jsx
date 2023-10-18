@@ -4,24 +4,44 @@ import "./orderStyling.css";
 
 export const Order = ({ t, isOrder }) => {
   const [selectedOption, setSelectedOption] = useState("option1");
-
+  const [addOrderTrue, setAddOrderTrue] = useState(false);
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
-  const closeOrder=()=>{
-    isOrder((prev)=>!prev)
-  }
+  const closeOrder = () => {
+    isOrder((prev) => !prev);
+  };
+  const addOrder = () => {
+    setAddOrderTrue((prev) => !prev);
+  };
 
-  return (
+  return addOrderTrue ? (
     <div className="order-conteiner">
       <div className="order">
         <div className="order-img">
           <img src="./img/order.svg" alt="" />
         </div>
         <div className="order-form">
-          
           <h2>{t("order.title")}</h2>
-          <button className="close-btn" onClick={() =>closeOrder()}>
+          <button className="close-btn" onClick={() => closeOrder()}>
+            <img src="img/close.svg" alt="" />
+          </button>
+          <div className="order-text">
+            <h2>your order is on the way</h2>
+            <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="order-conteiner">
+      <div className="order">
+        <div className="order-img">
+          <img src="./img/order.svg" alt="" />
+        </div>
+        <div className="order-form">
+          <h2>{t("order.title")}</h2>
+          <button className="close-btn" onClick={() => closeOrder()}>
             <img src="img/close.svg" alt="" />
           </button>
           <form action="" className="form-info">
@@ -66,7 +86,7 @@ export const Order = ({ t, isOrder }) => {
               </div>
             </div>
           </form>
-          <button>{t("order.order")}</button>
+          <button onClick={() => addOrder()}>{t("order.order")}</button>
         </div>
       </div>
     </div>

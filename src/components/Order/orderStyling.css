@@ -48,12 +48,13 @@ input:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 .order-img > img {
     width: fit-content;
 }
 .order-form {
-    display: flex;
+   display: flex;
     width: min-content;
     flex-direction: column;
     align-items: flex-start;
@@ -141,6 +142,50 @@ input:focus-visible {
   background-color: inherit;
   cursor: pointer;
 }
+.order-text{
+    width: 295px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+   overflow: hidden;
+}
+.order-text>h2{
+    color: #FF5C00;
+    margin-top: 50px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%;  
+}
+.order-text>img{
+    width: 40px;
+    position: absolute; 
+    animation: moveImage 8s linear infinite; 
+   
+}
+@keyframes moveImage {
+  0% {
+    transform: translateX(400%); 
+  }
+  20% {
+    transform: translateX(300%); 
+  }
+  40% {
+    transform: translateX(200%); 
+  }
+  60% {
+    transform: translateX(100%); 
+  }
+  80% {
+    transform: translateX(50%); 
+  }
+  100% {
+    transform: translateX(-500%); 
+  }
+}
+
 .order-form > button {
     display: flex;
     width: 294px;

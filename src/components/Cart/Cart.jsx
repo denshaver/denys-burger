@@ -19,7 +19,7 @@ export const Cart = ({ t }) => {
   const hehdlOrder = () =>{
     isOrder((prev)=>!prev)
   }
-  console.log(order);
+
   useEffect(() => {
     dispatch(calcCartInfo());
   }, [cart]);
@@ -99,7 +99,7 @@ export const Cart = ({ t }) => {
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
 
               <p>{t("cart.FreeShipping")}</p>
-              {/* <span>Fold</span> */}
+              
             </div>
           </div>
         </div>
