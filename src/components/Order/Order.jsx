@@ -27,7 +27,7 @@ export const Order = ({ t, isOrder }) => {
             <img src="img/close.svg" alt="" />
           </button>
           <div className="order-text">
-            <h2>your order is on the way</h2>
+            <h2>{t("order.way")}</h2>
             <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
           </div>
         </div>
