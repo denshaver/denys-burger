@@ -16,7 +16,6 @@ export const Order = ({ t, isOrder }) => {
   });
 
   useEffect(() => {
-    // Завантаження даних з localStorage при монтажі компонента
     const savedFormDataJSON = localStorage.getItem("orderFormData");
 
     if (savedFormDataJSON) {
@@ -35,8 +34,6 @@ export const Order = ({ t, isOrder }) => {
 
   const addOrder = () => {
     setAddOrderTrue((prev) => !prev);
-
-    // Збереження даних у localStorage
     localStorage.setItem("orderFormData", JSON.stringify(formData));
   };
 
