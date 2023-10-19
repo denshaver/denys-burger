@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import "./orderStyling.css";
 
 export const Order = ({ t, isOrder }) => {
-  const [selectedOption, setSelectedOption] = useState("option1");
+  const [selectedOption, setSelectedOption] = useState("selfDelivery");
   const [addOrderTrue, setAddOrderTrue] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    delivery: selectedOption,
     address: {
       street: "",
       onTopOf: "",
@@ -17,7 +18,6 @@ export const Order = ({ t, isOrder }) => {
 
   useEffect(() => {
     const savedFormDataJSON = localStorage.getItem("orderFormData");
-
     if (savedFormDataJSON) {
       const savedFormData = JSON.parse(savedFormDataJSON);
       setFormData(savedFormData);
@@ -106,11 +106,13 @@ export const Order = ({ t, isOrder }) => {
               <label className="custom-radio">
                 <input
                   type="radio"
-                  id="option1"
+                  id="selfDelivery"
                   name="radioGroup"
-                  value="option1"
-                  checked={selectedOption === "option1"}
+                  value="selfDelivery"
+                  checked={selectedOption === "selfDelivery"}
                   onChange={handleOptionChange}
+                  // onClick={handleInputChange}
+                  
                 />
                 <span className="custom-radio-checkmark"></span>
                 {t("order.Self-delivery")}
@@ -119,11 +121,12 @@ export const Order = ({ t, isOrder }) => {
               <label className="custom-radio">
                 <input
                   type="radio"
-                  id="option2"
+                  id="delivery"
                   name="radioGroup"
-                  value="option2"
-                  checked={selectedOption === "option2"}
-                  onChange={handleOptionChange}
+                  value="delivery"
+                  checked={selectedOption === "delivery"}
+                  onChange={handleOptionChange }
+                  // onClick={handleInputChange}
                 />
                 <span className="custom-radio-checkmark"></span>
                 {t("order.Delivery")}
