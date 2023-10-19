@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../data/products";
 import { closeModal } from "../../features/modal/modalSlice";
 import { addProduct } from "../../features/cart/cartSlice";
-import { useState } from "react";
+import { useState} from "react";
 import "./ModalWindowStyling.css";
 
 export const ModalWindow = ({ t }) => {
@@ -20,6 +20,8 @@ export const ModalWindow = ({ t }) => {
       setQuantity(0);
     
   }
+ 
+  
 
   if (!neededProduct) {
     return (
@@ -71,10 +73,12 @@ export const ModalWindow = ({ t }) => {
                     amount: quantity,
                     price: neededProduct.price,
                   })
+                
                 );
+               
                 dispatch(closeModal());
               }}
-            >
+              >
               {t("products.button")}
             </button>
 

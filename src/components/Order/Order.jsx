@@ -1,18 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./orderStyling.css";
 
 export const Order = ({ t, isOrder }) => {
   const [selectedOption, setSelectedOption] = useState("option1");
   const [addOrderTrue, setAddOrderTrue] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    address: {
+      street: "",
+      onTopOf: "",
+      entryphone: "",
+    },
+  });
+
+  useEffect(() => {
+    // Завантаження даних з localStorage при монтажі компонента
+    const savedFormDataJSON = localStorage.getItem("orderFormData");
+
+    if (savedFormDataJSON) {
+      const savedFormData = JSON.parse(savedFormDataJSON);
+      setFormData(savedFormData);
+    }
+  }, []);
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
   const closeOrder = () => {
     isOrder((prev) => !prev);
   };
+
   const addOrder = () => {
     setAddOrderTrue((prev) => !prev);
+
+    // Збереження даних у localStorage
+    localStorage.setItem("orderFormData", JSON.stringify(formData));
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleAddressChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      address: {
+        ...prevData.address,
+        [name]: value,
+      },
+    }));
   };
 
   return addOrderTrue ? (
@@ -45,9 +89,21 @@ export const Order = ({ t, isOrder }) => {
             <img src="img/close.svg" alt="" />
           </button>
           <form action="" className="form-info">
-            <input type="text" placeholder={t("order.name")} />
+            <input
+              type="text"
+              name="name"
+              placeholder={t("order.name")}
+              value={formData.name}
+              onChange={handleInputChange}
+            />
 
-            <input type="tel" name="" id="" placeholder={t("order.phone")} />
+            <input
+              type="tel"
+              name="phone"
+              placeholder={t("order.phone")}
+              value={formData.phone}
+              onChange={handleInputChange}
+            />
 
             <div className="radio-btn">
               <label className="custom-radio">
@@ -77,12 +133,30 @@ export const Order = ({ t, isOrder }) => {
               </label>
             </div>
             <div className="input-adress">
-              <input type="text" placeholder={t("order.Street")} />
+              <input
+                type="text"
+                name="street"
+                placeholder={t("order.Street")}
+                value={formData.address.street}
+                onChange={handleAddressChange}
+              />
 
               <div className="input-adress-form">
-                <input type="text" placeholder={t("order.On-top-of")} />
+                <input
+                  type="text"
+                  name="onTopOf"
+                  placeholder={t("order.On-top-of")}
+                  value={formData.address.onTopOf}
+                  onChange={handleAddressChange}
+                />
 
-                <input type="text" placeholder={t("order.Entryphone")} />
+                <input
+                  type="text"
+                  name="entryphone"
+                  placeholder={t("order.Entryphone")}
+                  value={formData.address.entryphone}
+                  onChange={handleAddressChange}
+                />
               </div>
             </div>
           </form>
