@@ -9,7 +9,6 @@ import Logo from "./components/Header/Logos";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
 import { LngChoose } from "./components/LngChoose/LngChoose";
-import { Order } from "./components/Order/Order";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -24,11 +23,7 @@ function App() {
     <LngChoose i18n={i18n} chooseLng={chooseLng} />
   ) : (
     <Suspense fallback={<div>Loading...</div>}>
-      {
-        isOpen && 
-        <ModalWindow t={t} />
-      
-      }
+      {isOpen && <ModalWindow t={t} />}
 
       <div className="container">
         <header>

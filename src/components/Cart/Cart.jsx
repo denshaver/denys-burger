@@ -8,7 +8,7 @@ import {
 } from "../../features/cart/cartSlice";
 import "./cartStyling.css";
 import { useEffect, useState } from "react";
-import {Order} from "../Order/Order"
+import { Order } from "../Order/Order";
 
 export const Cart = ({ t }) => {
   const dispatch = useDispatch();
@@ -16,13 +16,48 @@ export const Cart = ({ t }) => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
-  const hehdlOrder = () =>{
-    isOrder((prev)=>!prev)
-  }
+  const hehdlOrder = () => {
+    isOrder((prev) => !prev);
+  };
+
+  // useEffect(() => {
+  //   dispatch(calcCartInfo());
+  // }, [cart]);
 
   useEffect(() => {
-    dispatch(calcCartInfo());
+    // Завантаження даних корзини з localStorage при монтажі компонента
+    const savedCartJSON = localStorage.getItem("cart");
+    if (!savedCartJSON) {
+      dispatch(calcCartInfo());
+    } else if (savedCartJSON) {
+      const savedCart = JSON.parse(savedCartJSON);
+      dispatch(calcCartInfo(savedCart));
+    }
   }, [cart]);
+
+  // Функція для збереження даних корзини в localStorage
+  const saveCartToLocalStorage = (cartData) => {
+    localStorage.setItem("cart", JSON.stringify(cartData));
+  };
+console.log();
+  // Додавання, видалення і зміна кількості продуктів має відповідні дії
+  const handleAddToCart = (productId) => {
+    // Ваш код для додавання продукту в корзину
+    dispatch(increaseProduct(productId));
+    saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
+  };
+
+  const handleRemoveFromCart = (productId) => {
+    // Ваш код для видалення продукту з корзини
+    dispatch(deleteProduct(productId));
+    saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
+  };
+
+  const handleDecreaseQuantity = (productId) => {
+    // Ваш код для зменшення кількості продукту в корзині
+    dispatch(decreaseProduct(productId));
+    saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
+  };
 
   return (
     <section className="cart-container">
@@ -37,9 +72,8 @@ export const Cart = ({ t }) => {
           </div>
         </div>
       ) : (
-
         <div className="cart">
-          {order && <Order t={t} isOrder= {isOrder}/>}
+          {order && <Order t={t} isOrder={isOrder} />}
           <div className="cart-title">
             <div className="cart-count">
               <h3>{t("cart.order")}</h3>
@@ -54,7 +88,7 @@ export const Cart = ({ t }) => {
               );
 
               return cart.quantity !== 0 ? (
-                <div className="cart-item" key={neededItem.productId}>
+                <div className="cart-item" key={neededItem.id}>
                   <div className="cart-item__info">
                     <img src={neededItem.img} alt="" />
                     <div className="item-info__block">
@@ -67,8 +101,8 @@ export const Cart = ({ t }) => {
                     <button
                       onClick={() => {
                         if (cartItem.amount <= 1)
-                          dispatch(deleteProduct(cartItem.productId));
-                        dispatch(decreaseProduct(cartItem.productId));
+                          handleRemoveFromCart(cartItem.productId);
+                        handleDecreaseQuantity(cartItem.productId);
                       }}
                     >
                       -
@@ -77,9 +111,9 @@ export const Cart = ({ t }) => {
                     <span>{cartItem.amount}</span>
 
                     <button
-                      onClick={() =>
-                        dispatch(increaseProduct(cartItem.productId))
-                      }
+                      onClick={() => {
+                        handleAddToCart(cartItem.productId);
+                      }}
                     >
                       +
                     </button>
@@ -93,18 +127,16 @@ export const Cart = ({ t }) => {
               <p>{t("cart.total")}</p>
               <p>{cart.total} $</p>
             </div>
-            <button onClick={()=>hehdlOrder()} >{t("cart.orderBut")}</button>
+            <button onClick={() => hehdlOrder()}>{t("cart.orderBut")}</button>
 
             <div className="cart-delivery">
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
 
               <p>{t("cart.FreeShipping")}</p>
-              
             </div>
           </div>
         </div>
       )}
-
     </section>
   );
 };
