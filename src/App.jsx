@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Cart } from "./components/Cart/Cart";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { useSelector } from "react-redux";
@@ -15,6 +15,23 @@ function App() {
   const [category, setCategory] = useState("sku_id_1");
   const isOpen = useSelector((state) => state.modal.isOpen);
   const [lng, setLng] = useState(true);
+
+  const getData = () => {
+    const savedCartJSON = localStorage.getItem("cart");
+    const savedOrderJSON = localStorage.getItem("order");
+    if (!savedCartJSON || !savedOrderJSON) {
+      return false;
+    } else if (savedCartJSON && savedOrderJSON) {
+      const savedCart = JSON.parse(savedCartJSON);
+      const savedOrder = JSON.parse(savedOrderJSON);
+      return savedCart && savedOrder;
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const chooseLng = () => {
     setLng((prev) => !prev);
   };

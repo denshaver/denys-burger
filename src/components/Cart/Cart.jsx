@@ -33,24 +33,28 @@ export const Cart = ({ t }) => {
       dispatch(calcCartInfo(savedCart));
     }
   }, [cart]);
-
+console.log(cart);
   const saveCartToLocalStorage = (cartData) => {
-    localStorage.setItem("cart", JSON.stringify(cartData));
+    const newCart=[
+      ...cart,
+      cartData];
+      console.log(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
   const handleAddToCart = (productId) => {
     dispatch(increaseProduct(productId));
-    saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
+    saveCartToLocalStorage(cart);
   };
 
   const handleRemoveFromCart = (productId) => {
     dispatch(deleteProduct(productId));
-    saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
+    saveCartToLocalStorage(cart);
   };
 
   const handleDecreaseQuantity = (productId) => {
     dispatch(decreaseProduct(productId));
-    saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
+    saveCartToLocalStorage(cart);
   };
 
   return (
