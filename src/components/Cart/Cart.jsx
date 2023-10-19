@@ -25,7 +25,6 @@ export const Cart = ({ t }) => {
   // }, [cart]);
 
   useEffect(() => {
-    // Завантаження даних корзини з localStorage при монтажі компонента
     const savedCartJSON = localStorage.getItem("cart");
     if (!savedCartJSON) {
       dispatch(calcCartInfo());
@@ -35,26 +34,21 @@ export const Cart = ({ t }) => {
     }
   }, [cart]);
 
-  // Функція для збереження даних корзини в localStorage
   const saveCartToLocalStorage = (cartData) => {
     localStorage.setItem("cart", JSON.stringify(cartData));
   };
-console.log();
-  // Додавання, видалення і зміна кількості продуктів має відповідні дії
+
   const handleAddToCart = (productId) => {
-    // Ваш код для додавання продукту в корзину
     dispatch(increaseProduct(productId));
     saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
   };
 
   const handleRemoveFromCart = (productId) => {
-    // Ваш код для видалення продукту з корзини
     dispatch(deleteProduct(productId));
     saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
   };
 
   const handleDecreaseQuantity = (productId) => {
-    // Ваш код для зменшення кількості продукту в корзині
     dispatch(decreaseProduct(productId));
     saveCartToLocalStorage({ ...cart, cartItems: cart.cartItems });
   };
