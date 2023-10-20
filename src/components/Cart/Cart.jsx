@@ -16,30 +16,22 @@ export const Cart = ({ t }) => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
-  const hehdlOrder = () => {
+  const handleOrder = () => {
     isOrder((prev) => !prev);
   };
-
-  // useEffect(() => {
-  //   dispatch(calcCartInfo());
-  // }, [cart]);
 
   useEffect(() => {
     const savedCartJSON = localStorage.getItem("cart");
     if (!savedCartJSON) {
       dispatch(calcCartInfo());
-    } else if (savedCartJSON) {
+    } else {
       const savedCart = JSON.parse(savedCartJSON);
       dispatch(calcCartInfo(savedCart));
     }
   }, [cart]);
-console.log(cart);
-  const saveCartToLocalStorage = (cartData) => {
-    const newCart=[
-      ...cart,
-      cartData];
-      console.log(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+
+  const saveCartToLocalStorage = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   const handleAddToCart = (productId) => {
@@ -79,7 +71,7 @@ console.log(cart);
             </div>
           </div>
 
-          <div className="cart-items" key={products.id}>
+          <div className="cart-items">
             {cart.cartItems.map((cartItem) => {
               const neededItem = products.find(
                 (product) => product.id === cartItem.productId
@@ -108,11 +100,7 @@ console.log(cart);
 
                     <span>{cartItem.amount}</span>
 
-                    <button
-                      onClick={() => {
-                        handleAddToCart(cartItem.productId);
-                      }}
-                    >
+                    <button onClick={() => handleAddToCart(cartItem.productId)}>
                       +
                     </button>
                   </div>
@@ -125,11 +113,10 @@ console.log(cart);
               <p>{t("cart.total")}</p>
               <p>{cart.total} $</p>
             </div>
-            <button onClick={() => hehdlOrder()}>{t("cart.orderBut")}</button>
+            <button onClick={() => handleOrder()}>{t("cart.orderBut")}</button>
 
             <div className="cart-delivery">
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
-
               <p>{t("cart.FreeShipping")}</p>
             </div>
           </div>
