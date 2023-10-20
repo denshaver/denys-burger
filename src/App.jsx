@@ -19,13 +19,7 @@ function App() {
   const getData = () => {
     const savedCartJSON = localStorage.getItem("cart");
     const savedOrderJSON = localStorage.getItem("order");
-    if (!savedCartJSON || !savedOrderJSON) {
-      return false;
-    } else if (savedCartJSON && savedOrderJSON) {
-      const savedCart = JSON.parse(savedCartJSON);
-      const savedOrder = JSON.parse(savedOrderJSON);
-      return savedCart && savedOrder;
-    }
+    return savedCartJSON && savedOrderJSON;
   };
 
   useEffect(() => {

@@ -19,6 +19,9 @@ export const ModalWindow = ({ t }) => {
     dispatch(closeModal());
     setQuantity(0);
   };
+  const saveCartToLocalStorage = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
 
   if (!neededProduct) {
     return (
@@ -71,8 +74,8 @@ export const ModalWindow = ({ t }) => {
                     price: neededProduct.price,
                   })
                 );
-
                 dispatch(closeModal());
+                saveCartToLocalStorage(cart);
               }}
             >
               {t("products.button")}

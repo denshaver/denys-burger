@@ -111,8 +111,7 @@ export const Order = ({ t, isOrder }) => {
                   value="selfDelivery"
                   checked={selectedOption === "selfDelivery"}
                   onChange={handleOptionChange}
-                  // onClick={handleInputChange}
-                  
+                                
                 />
                 <span className="custom-radio-checkmark"></span>
                 {t("order.Self-delivery")}
