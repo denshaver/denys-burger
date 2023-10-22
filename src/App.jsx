@@ -41,6 +41,7 @@ function App() {
         <Footers t={t} />
       </div>
     </Suspense>
+    
   );
 }
 

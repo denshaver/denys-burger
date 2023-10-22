@@ -127,7 +127,7 @@ header{
       margin-top: 26px;
     }
 }
-@media (max-width: 320px){
+@media screen and (max-width: 426px) and (min-width: 279px) {
   .wrapper {
     max-width: 300px;
   }
@@ -158,7 +158,6 @@ header{
   }
   .burger-logo-info > h4 {
     font-size: 3rem;
-
   }
   .burger-logo-info > p {
     font-size: 1.2rem;
@@ -170,7 +169,6 @@ header{
     position: absolute;
     left: 10px;
     top: 24px;
-  
   }
   .lng-toggle > button{
     font-size: 1.2rem;

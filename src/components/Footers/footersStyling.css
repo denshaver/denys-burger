@@ -111,7 +111,7 @@ footer {
     padding-bottom: 4px;
   }
 }
-@media (max-width: 320px) {
+@media screen and (max-width: 426px) and (min-width: 280px) {
   footer {
     width: 100%;
     min-width: 320px;
