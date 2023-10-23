@@ -32,7 +32,8 @@ INSTALLED_APPS = [
 
     # applications
     'apps.products',
-    'apps.categories'
+    'apps.categories',
+    'apps.orders'
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# REST FRAMEWORK
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 1
+}
 
 # Default primary key field type
 
