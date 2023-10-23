@@ -21,8 +21,33 @@ export const Cart = ({ t }) => {
   }
 
   useEffect(() => {
-    dispatch(calcCartInfo());
+    const savedCartJSON = localStorage.getItem("cart");
+    if (!savedCartJSON) {
+      dispatch(calcCartInfo());
+    } else {
+      const savedCart = JSON.parse(savedCartJSON);
+      dispatch(calcCartInfo(savedCart));
+    }
   }, [cart]);
+
+  const saveCartToLocalStorage = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
+  const handleAddToCart = (productId) => {
+    dispatch(increaseProduct(productId));
+    saveCartToLocalStorage(cart);
+  };
+
+  const handleRemoveFromCart = (productId) => {
+    dispatch(deleteProduct(productId));
+    saveCartToLocalStorage(cart);
+  };
+
+  const handleDecreaseQuantity = (productId) => {
+    dispatch(decreaseProduct(productId));
+    saveCartToLocalStorage(cart);
+  };
 
   return (
     <section className="cart-container">
@@ -67,8 +92,8 @@ export const Cart = ({ t }) => {
                     <button
                       onClick={() => {
                         if (cartItem.amount <= 1)
-                          dispatch(deleteProduct(cartItem.productId));
-                        dispatch(decreaseProduct(cartItem.productId));
+                          handleRemoveFromCart(cartItem.productId);
+                        handleDecreaseQuantity(cartItem.productId);
                       }}
                     >
                       -

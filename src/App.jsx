@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Cart } from "./components/Cart/Cart";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { useSelector } from "react-redux";
@@ -8,32 +8,41 @@ import { Products } from "./components/Products/Products";
 import Logo from "./components/Header/Logos";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
-import { LngChoose } from "./components/LngChoose/LngChoose";
-import { Order } from "./components/Order/Order";
+// import { LngChoose } from "./components/LngChoose/LngChoose";
+import { LngButChoose } from "./components/LngChoose/LngButChoosen";
 
 function App() {
   const { t, i18n } = useTranslation();
   const [category, setCategory] = useState("sku_id_1");
   const isOpen = useSelector((state) => state.modal.isOpen);
-  const [lng, setLng] = useState(true);
-  const chooseLng = () => {
-    setLng((prev) => !prev);
+  const cart = useSelector((state) => state.cart);
+  // const [lng, setLng] = useState(true);
+
+  const getData = () => {
+    const savedCartJSON = localStorage.getItem("cart");
+    const savedOrderJSON = localStorage.getItem("order");
+    return savedCartJSON && savedOrderJSON;
   };
 
-  return lng ? (
-    <LngChoose i18n={i18n} chooseLng={chooseLng} />
-  ) : (
+  useEffect(() => {
+    getData();
+  }, []);
+
+  // const chooseLng = () => {
+  //   setLng((prev) => !prev);
+  // };
+
+  return(
+  //  lng ? (
+  //   <LngChoose i18n={i18n} chooseLng={chooseLng} />
+  // ) : (
     <Suspense fallback={<div>Loading...</div>}>
-      {
-        isOpen && 
-        <ModalWindow t={t} />
-      
-      }
+      {isOpen && <ModalWindow t={t} />}
 
       <div className="container">
         <header>
           <Logo t={t} />
-          {/* <Order t={t} /> */}
+          <LngButChoose  i18n={i18n} />
         </header>
         <main>
           <Head category={category} setCategory={setCategory} />

@@ -9,17 +9,19 @@ import "./ModalWindowStyling.css";
 
 export const ModalWindow = ({ t }) => {
   const dispatch = useDispatch();
-
+  const cart = useSelector((state) => state.cart);
   const productId = useSelector((state) => state.modal.productId);
 
   const neededProduct = products.find((product) => product.id === productId);
   const [quantity, setQuantity] = useState(1);
 
-  const closeModalWindow =() =>{
-      dispatch(closeModal());
-      setQuantity(0);
-    
-  }
+  const closeModalWindow = () => {
+    dispatch(closeModal());
+    setQuantity(0);
+  };
+  const saveCartToLocalStorage = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
 
   if (!neededProduct) {
     return (
@@ -73,6 +75,7 @@ export const ModalWindow = ({ t }) => {
                   })
                 );
                 dispatch(closeModal());
+                saveCartToLocalStorage(cart);
               }}
             >
               {t("products.button")}

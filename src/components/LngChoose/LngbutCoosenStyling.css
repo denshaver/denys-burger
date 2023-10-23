@@ -1,0 +1,41 @@
+.lng-toggle{
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 355px;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.lng-conteiner{
+width: 100px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+.lng-en{
+  width: 20px;
+  border: none;
+  background-color: inherit;
+  color: rgb(5, 5, 5);
+  font-size: 2.375rem;
+  
+}
+.lng-ua{
+  width: 20px;
+  border: none;
+  background-color: inherit;
+  color: rgb(10, 10, 10);
+  font-size: 2.375rem;
+} 
+.lng-title{
+  display: none;
+}
+.a{
+  color: bisque;
+}
