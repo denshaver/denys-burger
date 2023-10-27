@@ -100,7 +100,11 @@ export const Cart = ({ t }) => {
 
                     <span>{cartItem.amount}</span>
 
-                    <button onClick={() => handleAddToCart(cartItem.productId)}>
+                    <button
+                      onClick={() =>
+                        dispatch(increaseProduct(cartItem.productId))
+                      }
+                    >
                       +
                     </button>
                   </div>
