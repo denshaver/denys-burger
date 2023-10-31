@@ -4,10 +4,12 @@
   flex-direction: column;
   justify-content: bottom;
   align-items: center;
-  width: 1280px;
+  width: 100vw;
   background-position: bottom;
   /* background-size: cover; */
   background-image: url("./img/bg-logo.png");
+  background-size: 100vw 70vh;
+  background-repeat: no-repeat;
   height: 355px;
   margin-bottom: 50px;
 }
