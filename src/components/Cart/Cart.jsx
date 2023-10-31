@@ -1,92 +1,106 @@
 import { useSelector, useDispatch } from "react-redux";
 import { products } from "../../data/products";
 import {
-  addQuantity,
-  deletCartItem,
-  increaseQuantity,
+  calcCartInfo,
+  increaseProduct,
+  decreaseProduct,
+  deleteProduct,
 } from "../../features/cart/cartSlice";
-import "./cartStyling.css"
+import "./cartStyling.css";
+import { useEffect } from "react";
 
-export const Cart = () => {
+export const Cart = ({ t }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
-  if (cart.quantity < 1) {
-    dispatch(deletCartItem());
-  }
+  useEffect(() => {
+    dispatch(calcCartInfo());
+  }, [cart]);
 
-  console.log(cart.quantity);
-  console.log(cart.cartItems.length);
+  // if (cart.cartItems.find((item) => item.amount < 1))
+  // dispatch(deleteProduct(cart.cartItems.find((item) => item.amount < 1)));
+
+  console.log(cart.cartItems);
 
   return (
     <section className="cart-container">
-      <div className="cart">
-
-        {!hasItemsInCart || cart.quantity < 1 ? (
+      {!hasItemsInCart || cart.quantity < 1 ? (
+        <div className="cart">
           <div className="cart-title">
-          <p className="cart-empty">
-
-            Your cart is empty. <br /> <span>place your order...</span>
-          </p>
+            <div className="cart-count">
+              <h3>{t("cart.empty")}</h3>
+              <button>{cart.quantity}</button>
+            </div>
+            <p>{t("cart.emptySpan")}</p>
           </div>
-        ) : (
-          <div className="cart-title">
-            <h1>Your order:</h1>
-            {/* <span>{cart.cartItems.length}</span> */}
-            <span className="cart-count">{cart.quantity}</span>
-          </div>
-        )}
-
-        <div className="cart-items" key={products.id}>
-          {cart.cartItems.map((cartItem) => {
-            const neededItem = products.find(
-              (product) => product.id === cartItem.productId
-            );
-
-            return cart.quantity !== 0 ? (
-              <div className="cart-item" key={!neededItem.productId}>
-                {/* photo */}
-                <img src={neededItem.img} alt="" />
-                {/* info */}
-                <div className="cart-item-info">
-                  <div className="cart-item-info-title">
-                    <h3>{neededItem.title}</h3>
-                    <span>{neededItem.weight}g</span>
-                  </div>
-                  <h4>{neededItem.price}$</h4>
-                </div>
-                {/* button,count */}
-                <div className="cart-item-count">
-                  <button
-                    onClick={() =>
-                      dispatch(increaseQuantity(cart.quantity - 1))
-                    }
-                  >
-                    -
-                  </button>
-
-                  <span>{cart.quantity}</span>
-
-                  <button
-                    onClick={() => dispatch(addQuantity(cart.quantity + 1))}
-                  >
-                    +
-                  </button>
-                </div>
-                <br />
-                {/* total */}
-                <div className="total-conteiner">
-                  <h2 className="cart-total">
-                    Total: <b>{neededItem.price * cart.quantity}$</b>
-                  </h2>
-                </div>
-              </div>
-            ) : null;
-          })}
         </div>
-      </div>
+      ) : (
+        <div className="cart">
+          <div className="cart-title">
+            <div className="cart-count">
+              <h3>{t("cart.order")}</h3>
+              <button>{cart.quantity}</button>
+            </div>
+          </div>
+
+          <div className="cart-items" key={products.id}>
+            {cart.cartItems.map((cartItem) => {
+              const neededItem = products.find(
+                (product) => product.id === cartItem.productId
+              );
+
+              return cart.quantity !== 0 ? (
+                <div className="cart-item" key={neededItem.productId}>
+                  <div className="cart-item__info">
+                    <img src={neededItem.img} alt="" />
+                    <div className="item-info__block">
+                      <h4 className="item-title">{neededItem.title}</h4>
+                      <span className="weight">{neededItem.weight}g</span>
+                      <p className="price">{neededItem.price}$</p>
+                    </div>
+                  </div>
+                  <div className="cart-item__count">
+                    <button
+                      onClick={() => {
+                        if (cartItem.amount <= 1)
+                          dispatch(deleteProduct(cartItem.productId));
+                        dispatch(decreaseProduct(cartItem.productId));
+                      }}
+                    >
+                      -
+                    </button>
+
+                    <span>{cartItem.amount}</span>
+
+                    <button
+                      onClick={() =>
+                        dispatch(increaseProduct(cartItem.productId))
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              ) : null;
+            })}
+          </div>
+          <div className="cart-total">
+            <div className="total-info">
+              <p>{t("cart.total")}</p>
+              <p>{cart.total} $</p>
+            </div>
+            <button>{t("cart.orderBut")}</button>
+            <div className="cart-delivery">
+              <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
+
+              <p>{t("cart.FreeShipping")}</p>
+              {/* <span>Fold</span> */}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

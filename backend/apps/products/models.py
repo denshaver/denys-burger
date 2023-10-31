@@ -1,6 +1,7 @@
 from django.db import models
 
 from apps.categories.models import Category
+from .manager import ProductManager
 
 
 class Product(models.Model):
@@ -25,6 +26,8 @@ class Product(models.Model):
     weight_kilocalories = models.IntegerField(default=0,
                                               verbose_name='Weight in kilocalories')
 
+    objects = ProductManager()
+
     class Meta:
         db_table = 'products'
         verbose_name = 'product'
@@ -36,6 +39,7 @@ class Product(models.Model):
 
     @property
     def price(self):
+        """Integer representation of decimal price"""
         return int(self.price_decimal)
 
 
@@ -43,7 +47,7 @@ class ProductIngredient(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE,
                                 verbose_name='Product',
-                                related_name='compositions')
+                                related_name='ingredients')
     ingredient = models.CharField(max_length=250,
                                   verbose_name='Ingredient')
 

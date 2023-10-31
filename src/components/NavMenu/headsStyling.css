@@ -1,38 +1,28 @@
-/* header */
-header {
-  margin-bottom: 50px;
+.wrapper-categories {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 0 50px 25px;
+  overflow: scroll;
+}
+.categories {
+  display: flex;
+  gap: 24px;
+}
+.categories > button {
+  min-width: fit-content;
+  border-radius: 50px;
+  background: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  /* background-color: #e9e6e6; */
-}
-
-
-
-header > button {
-  padding: 5px 10px;
-  background: inherit;
-  border-radius: 10px;
+  gap: 8px;
   border: none;
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  color: #000;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  
+  padding: 8px 14px;
+
+  color: #000;
+  font-size: 1.6rem;
 }
-header > button.choosen {
+.categories > button.choosen {
   background-color: orange;
-  padding: 5px 10px;
-  color: #000;
-  place-self: center;
-  cursor: pointer;
-  border: none;
 }

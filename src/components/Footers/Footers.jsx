@@ -1,46 +1,45 @@
 import React from "react";
 import "./footersStyling.css";
 
-export const Footers = () => {
+export const Footers = ({ t }) => {
   return (
-    <div className="footers">
-      <div className="logo">
-        <div className="logo-img">
-          <img src="img/logo/f1-text.svg" alt="" />
-          <img src="img/logo/f1.svg" alt="" />
+    <footer>
+      <div className="wrapper footers">
+        <div className="logo">
+          <div className="logo-img">
+            <img src="img/logo/f1-text.svg" alt="" />
+            <img src="img/logo/f1.svg" alt="" />
+          </div>
         </div>
 
-        <div className="design">
-          <h3>
-            @Skadi ev,2023 <br />
-            <span>
-              Design: <b>DenysVysotskyi & co.</b>
-            </span>
-          </h3>
+        <div className="contacts">
+          <div className="contact">
+            <p>{t("footer.phone")}</p>
+            <div className="contact-number">
+              <img src="img/Call.svg" alt="" />
+              <span> +38 (050) 000-00-00</span>
+            </div>
+          </div>
+          <div className="contact">
+            <p>{t("footer.social")}</p>
+            <div className="social-img">
+              <a href="#">
+                <img src="img/logo/t.svg" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/logo/t.svg" alt="" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="contact">
-        <h2>Phone for call</h2>
-        <br />
+      <div className="wrapper design">
+        <p>@Skadi ev,2023</p>
         <p>
-          <img src="img/Call.svg" alt="" />
-          +38 (050) 000-00-00
+          {t("footer.designSpan")}
+          DenysVysotskyi & co.
         </p>
       </div>
-
-      <div className="social">
-        <h2>Social networks</h2>
-        <br />
-     <div className="social-img">
-     <a href="#">
-          <img src="img/logo/t.svg" alt="" />
-        </a>
-        <a href="#">
-          <img src="img/logo/t.svg" alt="" />
-        </a>
-     </div>
-      </div>
-    </div>
+    </footer>
   );
 };
