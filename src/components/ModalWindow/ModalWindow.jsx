@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../data/products";
 import { closeModal } from "../../features/modal/modalSlice";
-import { addProduct } from "../../features/cart/cartSlice";
+import { addProduct, saveCart } from "../../features/cart/cartSlice";
 import { useState } from "react";
 import "./ModalWindowStyling.css";
 
@@ -36,7 +36,7 @@ export const ModalWindow = ({ t }) => {
       <div className="modal">
         <div className="title-product__card">
           <h2>{neededProduct.title}</h2>
-          <button>
+          <button onClick={() => dispatch(closeModal())}>
             <img src="img/close.svg" alt="" />
           </button>
         </div>
@@ -72,6 +72,14 @@ export const ModalWindow = ({ t }) => {
                   })
                 );
                 dispatch(closeModal());
+                dispatch(
+                  saveCart({
+                    cartItems: [cart],
+                    total: neededProduct.price * quantity,
+                    quantity: quantity,
+                  })
+                );
+                dispatch(closeModal());
               }}
             >
               {t("products.button")}
@@ -90,7 +98,9 @@ export const ModalWindow = ({ t }) => {
               <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
             </div>
           </div>
-          <span className="price-product">{neededProduct.price * quantity}$</span>
+          <span className="price-product">
+            {neededProduct.price * quantity}$
+          </span>
         </div>
       </div>
     </div>

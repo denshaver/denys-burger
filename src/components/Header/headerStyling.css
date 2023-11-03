@@ -1,82 +1,82 @@
-header{
-  width: 100%;
-  height: 466px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+header {
+    width: 100%;
+    height: 466px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .burger-circle {
-  width: 2880px;
-  height: 2880px;
-  border-radius: 2880px;
-  background: #ffab08;
-  position: absolute;
-  top: -2414px;
-  z-index: -1;
+    width: 2880px;
+    height: 2880px;
+    border-radius: 2880px;
+    background: #ffab08;
+    position: absolute;
+    top: -2414px;
+    z-index: -1;
 }
-.wrapper-header{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+.wrapper-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 .logo-burger-img {
-  display: flex;
-  gap: 4px;
-  margin-top: 22px;
+    display: flex;
+    gap: 4px;
+    margin-top: 22px;
 }
 .burger-logo {
-  display: flex;
-  gap: 21px;
-  margin-top: 22px;
+    display: flex;
+    gap: 21px;
+    margin-top: 22px;
 }
 .burger-logo > img {
-  order: 0;
+    order: 0;
 }
 .burger-logo-info {
-  display: flex;
-  flex-direction: column;
-  padding-top: 46px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 46px;
 
-  order: 1;
+    order: 1;
 }
 .burger-logo-info > h4 {
-  color: #fff;
-  font-size: 5rem;
-  font-weight: 800;
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 800;
 }
 .burger-logo-info > h4 > span {
-  color: #ff5c00;
+    color: #ff5c00;
 }
 .burger-logo-info > p {
-  color: #ffffff;
-  font-size: 1.6rem;
-  margin-top: 52px;
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-top: 52px;
 }
 .burger-logo-info > p span {
-  color: #ffffff;
-  font-size: 1.6rem;
-  font-weight: 600;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
-.lng-toggle{
-  position: absolute;
-  left: 0;
-  top: 22px;
-  display: flex;
-  gap: 15px;
+.lng-toggle {
+    position: absolute;
+    left: 47px;
+    top: 28px;
+    display: flex;
+    gap: 15px;
 }
-.lng-b{
-  border: none;
-  font-size: 1.6rem;
-  color: #000;
-  cursor: pointer;
-  background-color: #ffab08;
+.lng-b {
+    border: none;
+    font-size: 1.6rem;
+    color: #000;
+    cursor: pointer;
+    background-color: #ffab08;
 }
-.lng-b:hover{
-  color: #fff;
+.lng-b:hover {
+    color: #fff;
 }
-.lng-a{
-  color: #fff;
+.lng-a {
+    color: #fff;
 }

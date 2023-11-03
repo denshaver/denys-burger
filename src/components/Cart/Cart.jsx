@@ -5,6 +5,8 @@ import {
   increaseProduct,
   decreaseProduct,
   deleteProduct,
+  
+  loadCart,
 } from "../../features/cart/cartSlice";
 import "./cartStyling.css";
 import { useEffect } from "react";
@@ -15,14 +17,27 @@ export const Cart = ({ t }) => {
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
 
+  // useEffect(() => {
+  //   dispatch(calcCartInfo());
+  // }, [cart]);
+
   useEffect(() => {
-    dispatch(calcCartInfo());
-  }, [cart]);
+    dispatch(calcCartInfo(cart));
+  }, [cart, dispatch]);
+
+  useEffect(() => {
+    // dispatch(calcCartInfo());
+    const loadedCart = loadCart();
+    if (loadedCart) {
+      dispatch(calcCartInfo(loadedCart));
+      
+    }
+  }, [cart, dispatch]);
 
   // if (cart.cartItems.find((item) => item.amount < 1))
   // dispatch(deleteProduct(cart.cartItems.find((item) => item.amount < 1)));
 
-  console.log(cart.cartItems);
+  console.log(cart);
 
   return (
     <section className="cart-container">

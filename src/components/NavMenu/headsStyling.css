@@ -3,7 +3,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px 0 50px 25px;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 .categories {
   display: flex;

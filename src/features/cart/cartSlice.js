@@ -5,6 +5,14 @@ const initialState = {
   quantity: 0,
   total: 0,
 };
+export const saveCart = (cart) => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+export const loadCart = () => {
+  const cart = localStorage.getItem("cart");
+  return cart ? JSON.parse(cart) : null;
+};
 
 const cartSlice = createSlice({
   name: "cart",
@@ -51,6 +59,11 @@ const cartSlice = createSlice({
       });
       state.total = total;
       state.quantity = quantity;
+    },
+    saveCart: (state, action) => {
+      state.cartItems = action.payload.cartItems;
+      state.total = action.payload.total;
+      state.quantity = action.payload.quantity;
     },
   },
 });
