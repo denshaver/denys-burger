@@ -71,10 +71,9 @@ export const ModalWindow = ({ t }) => {
                     price: neededProduct.price,
                   })
                 );
-                dispatch(closeModal());
                 dispatch(
                   saveCart({
-                    cartItems: [cart],
+                    cartItems: cart,
                     total: neededProduct.price * quantity,
                     quantity: quantity,
                   })

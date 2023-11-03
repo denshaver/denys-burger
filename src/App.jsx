@@ -10,6 +10,7 @@ import Logo from "./components/Header/Logos";
 // import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
+// import { Order } from "./components/Order/Order";
 
 function App() {
   const { t, i18n } = useTranslation();

@@ -5,18 +5,20 @@ import {
   increaseProduct,
   decreaseProduct,
   deleteProduct,
-  
   loadCart,
 } from "../../features/cart/cartSlice";
 import "./cartStyling.css";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
+import { Order } from "../Order/Order";
 
 export const Cart = ({ t }) => {
   const dispatch = useDispatch();
-
+  const [order, isOrder] = useState(false);
   const cart = useSelector((state) => state.cart);
   const hasItemsInCart = cart.cartItems.length > 0;
-
+  const hehdlOrder = () => {
+    isOrder((prev) => !prev);
+  };
   // useEffect(() => {
   //   dispatch(calcCartInfo());
   // }, [cart]);
@@ -30,14 +32,8 @@ export const Cart = ({ t }) => {
     const loadedCart = loadCart();
     if (loadedCart) {
       dispatch(calcCartInfo(loadedCart));
-      
     }
   }, [cart, dispatch]);
-
-  // if (cart.cartItems.find((item) => item.amount < 1))
-  // dispatch(deleteProduct(cart.cartItems.find((item) => item.amount < 1)));
-
-  console.log(cart);
 
   return (
     <section className="cart-container">
@@ -53,6 +49,7 @@ export const Cart = ({ t }) => {
         </div>
       ) : (
         <div className="cart">
+          {order && <Order t={t} isOrder={isOrder} />}
           <div className="cart-title">
             <div className="cart-count">
               <h3>{t("cart.order")}</h3>
@@ -106,7 +103,7 @@ export const Cart = ({ t }) => {
               <p>{t("cart.total")}</p>
               <p>{cart.total} $</p>
             </div>
-            <button>{t("cart.orderBut")}</button>
+            <button onClick={() => hehdlOrder()}>{t("cart.orderBut")}</button>
             <div className="cart-delivery">
               <img src="/img/logo/free-icon-delivery-2362252.svg" alt="" />
 
