@@ -15,7 +15,9 @@
   },
 
   "header": {
-    "delivery": "Free delivery on orders over"
+    "delivery": "Free delivery on orders over",
+    "tytle":"Only the most",
+    "tytleSpan": "delicious burgers!"
   },
 
   "modal": {

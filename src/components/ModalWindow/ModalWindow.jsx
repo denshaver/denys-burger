@@ -15,10 +15,10 @@ export const ModalWindow = ({ t }) => {
   const neededProduct = products.find((product) => product.id === productId);
   const [quantity, setQuantity] = useState(1);
 
-  if (quantity < 1) {
-    dispatch(closeModal());
-    setQuantity(0);
-  }
+  // if (quantity < 1) {
+  //   dispatch(closeModal());
+  //   setQuantity(0);
+  // }
 
   if (!neededProduct) {
     return (
@@ -36,7 +36,7 @@ export const ModalWindow = ({ t }) => {
       <div className="modal">
         <div className="title-product__card">
           <h2>{neededProduct.title}</h2>
-          <button onClick={() => dispatch(closeModal())}>
+          <button onClick={() => dispatch(closeModal()) || setQuantity(0)}>
             <img src="img/close.svg" alt="" />
           </button>
         </div>
@@ -64,6 +64,7 @@ export const ModalWindow = ({ t }) => {
           <div className="modal-button">
             <button
               onClick={() => {
+                dispatch(closeModal())
                 dispatch(
                   addProduct({
                     productId,
@@ -73,12 +74,13 @@ export const ModalWindow = ({ t }) => {
                 );
                 dispatch(
                   saveCart({
-                    cartItems: cart,
+                    cartItems: [Cart],
                     total: neededProduct.price * quantity,
                     quantity: quantity,
                   })
                 );
-                dispatch(closeModal());
+                ;
+                
               }}
             >
               {t("products.button")}

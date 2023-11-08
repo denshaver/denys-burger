@@ -19,19 +19,16 @@ export const Cart = ({ t }) => {
   const hehdlOrder = () => {
     isOrder((prev) => !prev);
   };
-  // useEffect(() => {
-  //   dispatch(calcCartInfo());
-  // }, [cart]);
-
+  
   useEffect(() => {
-    dispatch(calcCartInfo(cart));
+    dispatch(saveCart(cart));
   }, [cart, dispatch]);
 
   useEffect(() => {
-    // dispatch(calcCartInfo());
-    const loadedCart = loadCart();
+      const loadedCart = loadCart();
     if (loadedCart) {
-      dispatch(calcCartInfo(loadedCart));
+      dispatch(saveCart 
+        (loadedCart));
     }
   }, [cart, dispatch]);
 

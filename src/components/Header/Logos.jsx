@@ -17,7 +17,7 @@ const Logos = ({ t }) => {
           <img src="./img/logo/logo-burger.svg" alt="" />
           <div className="burger-logo-info">
             <h4>
-            Only the most <br /> <span>delicious burgers!</span>
+            {t("header.tytle")} <br /> <span>{t("header.tytleSpan")}</span>
             </h4>
             <p>
               {t("header.delivery")} <span>$100</span>
