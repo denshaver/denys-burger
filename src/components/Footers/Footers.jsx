@@ -5,13 +5,7 @@ export const Footers = ({ t }) => {
   return (
     <footer>
       <div className="wrapper footers">
-        <div className="logo">
-          <div className="logo-img">
-            <img src="img/logo/f1-text.svg" alt="" />
-            <img src="img/logo/f1.svg" alt="" />
-          </div>
-        </div>
-
+        <img src="img/logo/footer-logo.svg" alt="" />
         <div className="contacts">
           <div className="contact">
             <p>{t("footer.phone")}</p>
